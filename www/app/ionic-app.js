@@ -2,12 +2,10 @@
 import angular from "angular";
 
 // app
-import constantsModule from "./global/constants";
 import moduleName from "./name";
 import routes from "./routes";
-
-// components
-console.log("hi");
+import coreComponents from "./core-components";
+import appComponents from "./app-components";
 
 const injectables = [];
 
@@ -20,12 +18,9 @@ injectables.push(...[
 	// ionic
 	"ionic",
 
-	// app framework
-	constantsModule,
-
-	// app components
-	"starter.controllers",
-	"starter.services"
+	// app
+	coreComponents,
+	appComponents
 ]);
 
 angular.module(moduleName + ".exceptionHandler", [])
