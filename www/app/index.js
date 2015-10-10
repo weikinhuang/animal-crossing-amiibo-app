@@ -1,3 +1,7 @@
 "use strict";
 
-console.log(1);
+// setup app
+require("babel/polyfill");
+
+// setup the application
+require("./ionic-app");

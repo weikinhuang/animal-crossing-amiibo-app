@@ -5,17 +5,17 @@
     "ionic": "driftyco/ionic-bower#1.1.0"
   },
   "resolutions": {
-    "angular": ">= 1.0.8",
+    "angular": "1.4.7",
     "angular-animate": "1.4.7",
     "angular-sanitize": "1.4.7",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "0.2.15"
   },
   "dependencies": {
     "angular": "1.4.7",
     "angular-animate": "1.4.7",
     "angular-sanitize": "1.4.7",
-    "angular-touch": "~1.4.7",
-    "angular-ui-router": "~0.2.15",
-    "es5-shim": "~4.1.14"
+    "angular-touch": "1.4.7",
+    "angular-ui-router": "0.2.15",
+    "es5-shim": "4.1.14"
   }
 }
