@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# A hook to update files from package managers
+#
+# This is a post-merge/post-checkout hook.
+#
+
+if ! type node &> /dev/null; then
+    echo "NodeJs binary does not exist or is not in path: node"
+    exit 0
+fi
+
+# only do something if a file has changed
+CHANGED_FILES="$(git diff --name-only $1 $2)"
+
+# update npm/cordova dependencies
+if echo "$CHANGED_FILES" | grep package.json &> /dev/null; then
+    ionic state restore
+fi
