@@ -1,0 +1,15 @@
+{
+  "name": "animal-crossing-amiibo-app",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "less",
+    "js",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/app/**/*.less",
+    "!www/app/**/*.js",
+    "!www/lib/**/*"
+  ]
+}
