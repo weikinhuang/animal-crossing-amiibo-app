@@ -9,7 +9,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 		.state("tab", {
 			url : "/tab",
 			abstract : true,
-			templateUrl : "app/components/frame/tabs.html"
+			template : "<ac-frame-view></ac-frame-view>"
 		})
 
 		// Each tab has its own nav history stack:
@@ -18,8 +18,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url : "/dash",
 			views : {
 				"tab-dash" : {
-					templateUrl : "app/components/dash/tab-dash.html",
-					controller : "DashCtrl"
+					template : "<ac-dash-view></ac-dash-view>"
 				}
 			}
 		})
@@ -28,8 +27,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url : "/chats",
 			views : {
 				"tab-chats" : {
-					templateUrl : "app/components/chat/tab-chats.html",
-					controller : "ChatsCtrl"
+					template : "<ac-chats-view></ac-chats-view>"
 				}
 			}
 		})
@@ -37,8 +35,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url : "/chats/:chatId",
 			views : {
 				"tab-chats" : {
-					templateUrl : "app/components/chat/chat-detail.html",
-					controller : "ChatDetailCtrl"
+					template : "<ac-chat-detail-view></ac-chat-detail-view>"
 				}
 			}
 		})
@@ -47,8 +44,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			url : "/account",
 			views : {
 				"tab-account" : {
-					templateUrl : "app/components/account/tab-account.html",
-					controller : "AccountCtrl"
+					template : "<ac-account-view></ac-account-view>"
 				}
 			}
 		});
