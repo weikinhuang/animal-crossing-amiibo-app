@@ -1,52 +1,34 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sh = require('shelljs');
+"use strict";
 
-var paths = {
-  sass: ['./scss/**/*.scss']
-};
+var gulp = require("gulp");
+var glob = require("glob");
+var os = require("os");
+var path = require("path");
 
-gulp.task('default', ['sass']);
+// we need to explicitly mention the path to nodejs in windows
+if (os.platform() === "win32") {
+  // make sure to use node.exe instead of some wrapped node binary for future processes
+  process.env.PATH = path.dirname(process.execPath) + ";" + process.env.PATH;
+}
 
-gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
-    .pipe(sass({
-      errLogToConsole: true
-    }))
-    .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
-    .on('end', done);
-});
-
-gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
-});
-
-gulp.task('install', ['git-check'], function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
-    });
-});
-
-gulp.task('git-check', function(done) {
-  if (!sh.which('git')) {
-    console.log(
-      '  ' + gutil.colors.red('Git is not installed.'),
-      '\n  Git, the version control system, is required to download Ionic.',
-      '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
-      '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
-    );
-    process.exit(1);
+glob.sync("*.task.js", { cwd : "gulp" }).forEach(function(filename) {
+  if ((/\.dev\.task\.js$/).test(filename) && process.env.NODE_ENV === "production") {
+    return;
   }
-  done();
+  // load up tasks from sub files
+  require(path.join(__dirname, "gulp", filename));
 });
+
+gulp.task("default", function() {
+  console.log(arguments);
+});
+
+gulp.task("lint", ["eslint"]);
+
+gulp.task("dist", [
+  "js", "sass", "less"
+]);
+
+gulp.task("watch", [
+  "dev"
+]);
