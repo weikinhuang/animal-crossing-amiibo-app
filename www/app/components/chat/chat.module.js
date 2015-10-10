@@ -10,6 +10,6 @@ export default module.name;
 module
 	.controller("ChatsCtrl", ChatsCtrl)
 	.controller("ChatDetailCtrl", ChatDetailCtrl)
-	.factory("Chats", ChatsSvc)
+	.factory("ChatsSvc", ChatsSvc)
 ;
 

@@ -40,7 +40,7 @@ export default function ChatsSvc() {
 		},
 		get : function(chatId) {
 			for (let i = 0; i < chats.length; i++) {
-				if (chats[i].id === parseInt(chatId)) {
+				if (chats[i].id === parseInt(chatId, 10)) {
 					return chats[i];
 				}
 			}
