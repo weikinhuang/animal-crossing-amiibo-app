@@ -1,0 +1,5 @@
+www/dist/**
+www/lib/**
+node_modules/**
+
+hooks/after_prepare/010_add_platform_class.js

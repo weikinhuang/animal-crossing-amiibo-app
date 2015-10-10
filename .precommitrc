@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "css": [
+      "csslint"
+    ],
+    "less": [
+      "less",
+      "csslint"
+    ],
+    "html": [
+      "csslint",
+      "eslint"
+    ],
+    "js": [
+      "eslint"
+    ]
+  }
+}

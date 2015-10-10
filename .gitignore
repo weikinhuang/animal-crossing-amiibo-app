@@ -7,8 +7,6 @@ www/lib
 # cordova/ionic
 platforms/
 plugins/
-hooks/after_prepare/010_add_platform_class.js
-hooks/README.md
 
 # IDE/OS files
 .idea

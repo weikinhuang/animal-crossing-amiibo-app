@@ -1,0 +1,16 @@
+{
+  "ignore": [
+    "floats",
+    "ids",
+    "adjoining-classes",
+    "regex-selectors"
+  ],
+  "warnings": [
+    "shorthand",
+    "zero-units"
+  ],
+  "errors": [
+    "duplicate-properties",
+    "empty-rules"
+  ]
+}

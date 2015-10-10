@@ -61,7 +61,7 @@
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
     {
-      "_name": "cordova-plugin-whitelist",
+      "id": "cordova-plugin-whitelist",
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git"
     }
   ],
