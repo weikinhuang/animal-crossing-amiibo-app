@@ -1,0 +1,705 @@
+{
+  "wave": 1,
+  "cards": [
+    {
+      "id": 1,
+      "type": "Special",
+      "name": "Isabelle",
+      "wave": 1,
+      "birthday": "9996-12-20T05:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "type": "Special",
+      "name": "Tom Nook",
+      "wave": 1,
+      "birthday": "9996-05-30T04:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "type": "Special",
+      "name": "DJ KK",
+      "wave": 1,
+      "birthday": "9996-08-23T04:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "type": "Special",
+      "name": "Sable",
+      "wave": 1,
+      "birthday": "9996-11-22T05:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "type": "Special",
+      "name": "Kapp'n",
+      "wave": 1,
+      "birthday": "9996-07-12T04:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "type": "Special",
+      "name": "Resetti",
+      "wave": 1,
+      "birthday": "9996-04-06T04:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "type": "Special",
+      "name": "Joan",
+      "wave": 1,
+      "birthday": "9996-01-08T05:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "type": "Special",
+      "name": "Timmy",
+      "wave": 1,
+      "birthday": "9996-06-07T04:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "type": "Special",
+      "name": "Digby",
+      "wave": 1,
+      "birthday": "9996-12-20T05:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "type": "Special",
+      "name": "Pascal",
+      "wave": 1,
+      "birthday": "9996-07-19T04:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "type": "Special",
+      "name": "Harriet",
+      "wave": 1,
+      "birthday": "9996-01-31T05:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "type": "Special",
+      "name": "Redd",
+      "wave": 1,
+      "birthday": "9996-10-18T04:00:00.000Z"
+    },
+    {
+      "id": 13,
+      "type": "Special",
+      "name": "Saharah",
+      "wave": 1,
+      "birthday": "9996-11-10T05:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "type": "Special",
+      "name": "Luna",
+      "wave": 1,
+      "birthday": "9996-02-29T05:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "type": "Special",
+      "name": "Tortimer",
+      "wave": 1,
+      "birthday": "9996-12-31T05:00:00.000Z"
+    },
+    {
+      "id": 16,
+      "type": "Special",
+      "name": "Lyle",
+      "wave": 1,
+      "birthday": "9996-06-06T04:00:00.000Z"
+    },
+    {
+      "id": 17,
+      "type": "Special",
+      "name": "Lottie",
+      "wave": 1,
+      "birthday": "9996-09-12T04:00:00.000Z"
+    },
+    {
+      "id": 18,
+      "type": "Normal",
+      "name": "Bob",
+      "wave": 1,
+      "birthday": "9996-01-01T05:00:00.000Z"
+    },
+    {
+      "id": 19,
+      "type": "Normal",
+      "name": "Fauna",
+      "wave": 1,
+      "birthday": "9996-03-26T04:00:00.000Z"
+    },
+    {
+      "id": 20,
+      "type": "Normal",
+      "name": "Curt",
+      "wave": 1,
+      "birthday": "9996-07-01T04:00:00.000Z"
+    },
+    {
+      "id": 21,
+      "type": "Normal",
+      "name": "Portia",
+      "wave": 1,
+      "birthday": "9996-10-25T04:00:00.000Z"
+    },
+    {
+      "id": 22,
+      "type": "Normal",
+      "name": "Leonardo",
+      "wave": 1,
+      "birthday": "9996-05-15T04:00:00.000Z"
+    },
+    {
+      "id": 23,
+      "type": "Normal",
+      "name": "Cheri",
+      "wave": 1,
+      "birthday": "9996-03-17T04:00:00.000Z"
+    },
+    {
+      "id": 24,
+      "type": "Normal",
+      "name": "Kyle",
+      "wave": 1,
+      "birthday": "9996-12-06T05:00:00.000Z"
+    },
+    {
+      "id": 25,
+      "type": "Normal",
+      "name": "Al",
+      "wave": 1,
+      "birthday": "9996-10-18T04:00:00.000Z"
+    },
+    {
+      "id": 26,
+      "type": "Normal",
+      "name": "Renée",
+      "wave": 1,
+      "birthday": "9996-05-28T04:00:00.000Z"
+    },
+    {
+      "id": 27,
+      "type": "Normal",
+      "name": "Lopez",
+      "wave": 1,
+      "birthday": "9996-08-20T04:00:00.000Z"
+    },
+    {
+      "id": 28,
+      "type": "Normal",
+      "name": "Jambette",
+      "wave": 1,
+      "birthday": "9996-10-27T04:00:00.000Z"
+    },
+    {
+      "id": 29,
+      "type": "Normal",
+      "name": "Rasher",
+      "wave": 1,
+      "birthday": "9996-04-07T04:00:00.000Z"
+    },
+    {
+      "id": 30,
+      "type": "Normal",
+      "name": "Tiffany",
+      "wave": 1,
+      "birthday": "9996-01-09T05:00:00.000Z"
+    },
+    {
+      "id": 31,
+      "type": "Normal",
+      "name": "Sheldon",
+      "wave": 1,
+      "birthday": "9996-02-26T05:00:00.000Z"
+    },
+    {
+      "id": 32,
+      "type": "Normal",
+      "name": "Bluebear",
+      "wave": 1,
+      "birthday": "9996-06-24T04:00:00.000Z"
+    },
+    {
+      "id": 33,
+      "type": "Normal",
+      "name": "Bill",
+      "wave": 1,
+      "birthday": "9996-02-01T05:00:00.000Z"
+    },
+    {
+      "id": 34,
+      "type": "Normal",
+      "name": "Kiki",
+      "wave": 1,
+      "birthday": "9996-10-08T04:00:00.000Z"
+    },
+    {
+      "id": 35,
+      "type": "Normal",
+      "name": "Deli",
+      "wave": 1,
+      "birthday": "9996-05-24T04:00:00.000Z"
+    },
+    {
+      "id": 36,
+      "type": "Normal",
+      "name": "Alli",
+      "wave": 1,
+      "birthday": "9996-11-08T05:00:00.000Z"
+    },
+    {
+      "id": 37,
+      "type": "Normal",
+      "name": "Kabuki",
+      "wave": 1,
+      "birthday": "9996-11-29T05:00:00.000Z"
+    },
+    {
+      "id": 38,
+      "type": "Normal",
+      "name": "Patty",
+      "wave": 1,
+      "birthday": "9996-05-10T04:00:00.000Z"
+    },
+    {
+      "id": 39,
+      "type": "Normal",
+      "name": "Jitters",
+      "wave": 1,
+      "birthday": "9996-02-02T05:00:00.000Z"
+    },
+    {
+      "id": 40,
+      "type": "Normal",
+      "name": "Gigi",
+      "wave": 1,
+      "birthday": "9996-08-11T04:00:00.000Z"
+    },
+    {
+      "id": 41,
+      "type": "Normal",
+      "name": "Quillson",
+      "wave": 1,
+      "birthday": "9996-12-22T05:00:00.000Z"
+    },
+    {
+      "id": 42,
+      "type": "Normal",
+      "name": "Marcie",
+      "wave": 1,
+      "birthday": "9996-05-31T04:00:00.000Z"
+    },
+    {
+      "id": 43,
+      "type": "Normal",
+      "name": "Puck",
+      "wave": 1,
+      "birthday": "9996-02-21T05:00:00.000Z"
+    },
+    {
+      "id": 44,
+      "type": "Normal",
+      "name": "Shari",
+      "wave": 1,
+      "birthday": "9996-04-10T04:00:00.000Z"
+    },
+    {
+      "id": 45,
+      "type": "Normal",
+      "name": "Octavian",
+      "wave": 1,
+      "birthday": "9996-09-20T04:00:00.000Z"
+    },
+    {
+      "id": 46,
+      "type": "Normal",
+      "name": "Winnie",
+      "wave": 1,
+      "birthday": "9996-01-31T05:00:00.000Z"
+    },
+    {
+      "id": 47,
+      "type": "Normal",
+      "name": "Knox",
+      "wave": 1,
+      "birthday": "9996-11-23T05:00:00.000Z"
+    },
+    {
+      "id": 48,
+      "type": "Normal",
+      "name": "Sterling",
+      "wave": 1,
+      "birthday": "9996-12-11T05:00:00.000Z"
+    },
+    {
+      "id": 49,
+      "type": "Normal",
+      "name": "Bonbon",
+      "wave": 1,
+      "birthday": "9996-03-03T05:00:00.000Z"
+    },
+    {
+      "id": 50,
+      "type": "Normal",
+      "name": "Punchy",
+      "wave": 1,
+      "birthday": "9996-04-11T04:00:00.000Z"
+    },
+    {
+      "id": 51,
+      "type": "Normal",
+      "name": "Opal",
+      "wave": 1,
+      "birthday": "9996-01-20T05:00:00.000Z"
+    },
+    {
+      "id": 52,
+      "type": "Normal",
+      "name": "Poppy",
+      "wave": 1,
+      "birthday": "9996-08-05T04:00:00.000Z"
+    },
+    {
+      "id": 53,
+      "type": "Normal",
+      "name": "Limberg",
+      "wave": 1,
+      "birthday": "9996-10-17T04:00:00.000Z"
+    },
+    {
+      "id": 54,
+      "type": "Normal",
+      "name": "Deena",
+      "wave": 1,
+      "birthday": "9996-06-27T04:00:00.000Z"
+    },
+    {
+      "id": 55,
+      "type": "Normal",
+      "name": "Snake",
+      "wave": 1,
+      "birthday": "9996-11-03T05:00:00.000Z"
+    },
+    {
+      "id": 56,
+      "type": "Normal",
+      "name": "Bangle",
+      "wave": 1,
+      "birthday": "9996-08-27T04:00:00.000Z"
+    },
+    {
+      "id": 57,
+      "type": "Normal",
+      "name": "Phil",
+      "wave": 1,
+      "birthday": "9996-11-27T05:00:00.000Z"
+    },
+    {
+      "id": 58,
+      "type": "Normal",
+      "name": "Monique",
+      "wave": 1,
+      "birthday": "9996-09-30T04:00:00.000Z"
+    },
+    {
+      "id": 59,
+      "type": "Normal",
+      "name": "Nate",
+      "wave": 1,
+      "birthday": "9996-08-16T04:00:00.000Z"
+    },
+    {
+      "id": 60,
+      "type": "Normal",
+      "name": "Samson",
+      "wave": 1,
+      "birthday": "9996-07-05T04:00:00.000Z"
+    },
+    {
+      "id": 61,
+      "type": "Normal",
+      "name": "Tutu",
+      "wave": 1,
+      "birthday": "9996-09-15T04:00:00.000Z"
+    },
+    {
+      "id": 62,
+      "type": "Normal",
+      "name": "T-Bone",
+      "wave": 1,
+      "birthday": "9996-05-20T04:00:00.000Z"
+    },
+    {
+      "id": 63,
+      "type": "Normal",
+      "name": "Mint",
+      "wave": 1,
+      "birthday": "9996-05-02T04:00:00.000Z"
+    },
+    {
+      "id": 64,
+      "type": "Normal",
+      "name": "Pudge",
+      "wave": 1,
+      "birthday": "9996-06-11T04:00:00.000Z"
+    },
+    {
+      "id": 65,
+      "type": "Normal",
+      "name": "Midge",
+      "wave": 1,
+      "birthday": "9996-03-12T04:00:00.000Z"
+    },
+    {
+      "id": 66,
+      "type": "Normal",
+      "name": "Gruff",
+      "wave": 1,
+      "birthday": "9996-08-29T04:00:00.000Z"
+    },
+    {
+      "id": 67,
+      "type": "Normal",
+      "name": "Flurry",
+      "wave": 1,
+      "birthday": "9996-01-30T05:00:00.000Z"
+    },
+    {
+      "id": 68,
+      "type": "Normal",
+      "name": "Clyde",
+      "wave": 1,
+      "birthday": "9996-05-01T04:00:00.000Z"
+    },
+    {
+      "id": 69,
+      "type": "Normal",
+      "name": "Bella",
+      "wave": 1,
+      "birthday": "9996-12-28T05:00:00.000Z"
+    },
+    {
+      "id": 70,
+      "type": "Normal",
+      "name": "Biff",
+      "wave": 1,
+      "birthday": "9996-03-29T04:00:00.000Z"
+    },
+    {
+      "id": 71,
+      "type": "Normal",
+      "name": "Yuka",
+      "wave": 1,
+      "birthday": "9996-07-20T04:00:00.000Z"
+    },
+    {
+      "id": 72,
+      "type": "Normal",
+      "name": "Lionel",
+      "wave": 1,
+      "birthday": "9996-07-29T04:00:00.000Z"
+    },
+    {
+      "id": 73,
+      "type": "Normal",
+      "name": "Flo",
+      "wave": 1,
+      "birthday": "9996-09-02T04:00:00.000Z"
+    },
+    {
+      "id": 74,
+      "type": "Normal",
+      "name": "Cobb",
+      "wave": 1,
+      "birthday": "9996-10-07T04:00:00.000Z"
+    },
+    {
+      "id": 75,
+      "type": "Normal",
+      "name": "Amelia",
+      "wave": 1,
+      "birthday": "9996-11-19T05:00:00.000Z"
+    },
+    {
+      "id": 76,
+      "type": "Normal",
+      "name": "Jeremiah",
+      "wave": 1,
+      "birthday": "9996-07-08T04:00:00.000Z"
+    },
+    {
+      "id": 77,
+      "type": "Normal",
+      "name": "Cherry",
+      "wave": 1,
+      "birthday": "9996-05-11T04:00:00.000Z"
+    },
+    {
+      "id": 78,
+      "type": "Normal",
+      "name": "Roscoe",
+      "wave": 1,
+      "birthday": "9996-06-16T04:00:00.000Z"
+    },
+    {
+      "id": 79,
+      "type": "Normal",
+      "name": "Truffles",
+      "wave": 1,
+      "birthday": "9996-07-28T04:00:00.000Z"
+    },
+    {
+      "id": 80,
+      "type": "Normal",
+      "name": "Eugene",
+      "wave": 1,
+      "birthday": "9996-10-26T04:00:00.000Z"
+    },
+    {
+      "id": 81,
+      "type": "Normal",
+      "name": "Eunice",
+      "wave": 1,
+      "birthday": "9996-04-03T04:00:00.000Z"
+    },
+    {
+      "id": 82,
+      "type": "Normal",
+      "name": "Goose",
+      "wave": 1,
+      "birthday": "9996-10-04T04:00:00.000Z"
+    },
+    {
+      "id": 83,
+      "type": "Normal",
+      "name": "Annalisa",
+      "wave": 1,
+      "birthday": "9996-02-06T05:00:00.000Z"
+    },
+    {
+      "id": 84,
+      "type": "Normal",
+      "name": "Benjamin",
+      "wave": 1,
+      "birthday": "9996-08-03T04:00:00.000Z"
+    },
+    {
+      "id": 85,
+      "type": "Normal",
+      "name": "Pancetti",
+      "wave": 1,
+      "birthday": "9996-11-14T05:00:00.000Z"
+    },
+    {
+      "id": 86,
+      "type": "Normal",
+      "name": "Chief",
+      "wave": 1,
+      "birthday": "9996-12-19T05:00:00.000Z"
+    },
+    {
+      "id": 87,
+      "type": "Normal",
+      "name": "Bunnie",
+      "wave": 1,
+      "birthday": "9996-05-09T04:00:00.000Z"
+    },
+    {
+      "id": 88,
+      "type": "Normal",
+      "name": "Clay",
+      "wave": 1,
+      "birthday": "9996-10-19T04:00:00.000Z"
+    },
+    {
+      "id": 89,
+      "type": "Normal",
+      "name": "Diana",
+      "wave": 1,
+      "birthday": "9996-01-04T05:00:00.000Z"
+    },
+    {
+      "id": 90,
+      "type": "Normal",
+      "name": "Axel",
+      "wave": 1,
+      "birthday": "9996-03-23T04:00:00.000Z"
+    },
+    {
+      "id": 91,
+      "type": "Normal",
+      "name": "Muffy",
+      "wave": 1,
+      "birthday": "9996-02-14T05:00:00.000Z"
+    },
+    {
+      "id": 92,
+      "type": "Normal",
+      "name": "Henry",
+      "wave": 1,
+      "birthday": "9996-09-21T04:00:00.000Z"
+    },
+    {
+      "id": 93,
+      "type": "Normal",
+      "name": "Bertha",
+      "wave": 1,
+      "birthday": "9996-04-25T04:00:00.000Z"
+    },
+    {
+      "id": 94,
+      "type": "Normal",
+      "name": "Cyrano",
+      "wave": 1,
+      "birthday": "9996-03-09T05:00:00.000Z"
+    },
+    {
+      "id": 95,
+      "type": "Normal",
+      "name": "Peanut",
+      "wave": 1,
+      "birthday": "9996-06-08T04:00:00.000Z"
+    },
+    {
+      "id": 96,
+      "type": "Normal",
+      "name": "Cole",
+      "wave": 1,
+      "birthday": "9996-08-10T04:00:00.000Z"
+    },
+    {
+      "id": 97,
+      "type": "Normal",
+      "name": "Willow",
+      "wave": 1,
+      "birthday": "9996-11-26T05:00:00.000Z"
+    },
+    {
+      "id": 98,
+      "type": "Normal",
+      "name": "Roald",
+      "wave": 1,
+      "birthday": "9996-01-05T05:00:00.000Z"
+    },
+    {
+      "id": 99,
+      "type": "Normal",
+      "name": "Molly",
+      "wave": 1,
+      "birthday": "9996-03-07T05:00:00.000Z"
+    },
+    {
+      "id": 100,
+      "type": "Normal",
+      "name": "Walker",
+      "wave": 1,
+      "birthday": "9996-06-10T04:00:00.000Z"
+    }
+  ]
+}
