@@ -1,4 +1,5 @@
 import { routeTemplate as frameRouteTemplate, routeController as frameRouteController } from "./components/frame/frame.module";
+import { routeTemplate as dashRouteTemplate, routeController as dashRouteController } from "./components/dash/dash.module";
 
 function routerConfig($stateProvider, $urlRouterProvider) {
 	// Ionic uses AngularUI Router which uses the concept of states
@@ -7,7 +8,6 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 	// Each state's controller can be found in controllers.js
 	$stateProvider
 
-		// setup an abstract state for the tabs directive
 		.state("app", {
 			url : "/app",
 			abstract : true,
@@ -15,14 +15,12 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			controller : `${frameRouteController} as viewCtrl`
 		})
 
-		// Each tab has its own nav history stack:
-
 		.state("app.dash", {
 			url : "/dash",
 			views : {
 				content : {
-					templateUrl : "app/components/dash/tab-dash.html"
-					// template : `<ac-dash-view style="translate3d(0%, 0px, 0px)"></ac-dash-view>`
+					templateUrl : dashRouteTemplate,
+					controller : `${dashRouteController} as viewCtrl`
 				}
 			}
 		})
