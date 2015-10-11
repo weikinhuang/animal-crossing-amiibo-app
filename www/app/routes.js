@@ -41,15 +41,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				}
 			}
 		})
-
-		.state("app.account", {
-			url : "/account",
-			views : {
-				content : {
-					template : "<ac-account-view></ac-account-view>"
-				}
-			}
-		});
+	;
 
 	// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise("/app/dash");
