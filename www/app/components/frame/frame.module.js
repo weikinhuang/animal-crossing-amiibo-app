@@ -7,7 +7,7 @@ export const module = angular.module("app.frame", []);
 export default module.name;
 
 module
-	.directive("FrameViewCtrl", FrameViewCtrl)
+	.controller("FrameViewCtrl", FrameViewCtrl)
 	.directive("acFrameView", acFrameView)
 ;
 
