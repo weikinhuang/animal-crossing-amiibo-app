@@ -1,12 +1,12 @@
 import angular from "angular";
 
-import chatModule from "./components/chat/chat.module";
 import dashModule from "./components/dash/dash.module";
 import frameModule from "./components/frame/frame.module";
+import waveListModule from "./components/wave-list/wave-list.module";
 
 export const module = angular.module("core.app-components", [
-	chatModule,
 	dashModule,
-	frameModule
+	frameModule,
+	waveListModule
 ]);
 export default module.name;

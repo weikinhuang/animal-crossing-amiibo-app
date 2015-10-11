@@ -1,5 +1,6 @@
 import { routeTemplate as frameRouteTemplate, routeController as frameRouteController } from "./components/frame/frame.module";
 import { routeTemplate as dashRouteTemplate, routeController as dashRouteController } from "./components/dash/dash.module";
+import { routeTemplate as waveListRouteTemplate, routeController as waveListRouteController } from "./components/wave-list/wave-list.module";
 
 function routerConfig($stateProvider, $urlRouterProvider) {
 	// Ionic uses AngularUI Router which uses the concept of states
@@ -25,19 +26,12 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			}
 		})
 
-		.state("app.chats", {
-			url : "/chats",
+		.state("app.wave-list", {
+			url : "/wave-list/:wave",
 			views : {
 				content : {
-					template : "<ac-chats-view></ac-chats-view>"
-				}
-			}
-		})
-		.state("app.chat-detail", {
-			url : "/chats/:chatId",
-			views : {
-				content : {
-					template : "<ac-chat-detail-view></ac-chat-detail-view>"
+					templateUrl : waveListRouteTemplate,
+					controller : `${waveListRouteController} as viewCtrl`
 				}
 			}
 		})

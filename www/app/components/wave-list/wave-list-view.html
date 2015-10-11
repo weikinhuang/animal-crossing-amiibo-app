@@ -1,0 +1,9 @@
+<ion-view view-title="Series {{ ::viewCtrl.seriesId }}">
+	<ion-content>
+		<div ng-repeat="card in ::viewCtrl.cards track by card.id">
+			{{ card.id }}
+			<img ng-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
+				height="162" width="115">
+		</div>
+	</ion-content>
+</ion-view>
