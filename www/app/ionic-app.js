@@ -18,6 +18,9 @@ injectables.push(...[
 	// ionic
 	"ionic",
 
+	// third party
+	"ionicLazyLoad",
+
 	// app
 	coreComponents,
 	appComponents

@@ -1,9 +1,17 @@
 <ion-view view-title="Series {{ ::viewCtrl.seriesId }}">
-	<ion-content>
-		<div ng-repeat="card in ::viewCtrl.cards track by card.id">
-			{{ card.id }}
-			<img ng-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
-				height="162" width="115">
+	<ion-content lazy-scroll>
+		<div style="display: flex; flex-flow: row wrap;">
+			<div ng-repeat="card in ::viewCtrl.cards track by card.id"
+				 style="height: 200px; flex: 1 1 auto;"
+			>
+				{{ card.id }}
+				<img alt="{{ ::card.name }}"
+					 height="162" width="115"
+					 ng-src="img/cards/loading.jpg"
+					 image-lazy-distance-from-bottom-to-load="100"
+					 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
+					>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>
