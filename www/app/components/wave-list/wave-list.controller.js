@@ -13,6 +13,7 @@ export default class WaveListCtrl {
 		this.isFilteringOwned = false;
 		this.searchShown = false;
 		this.searchFilter = "";
+		this.setNotReleased = this.seriesId > this.LATEST_SERIES;
 
 		this.$ionicLoading.show();
 
@@ -68,7 +69,7 @@ export default class WaveListCtrl {
 		}
 		// we're looking for a number
 		if ((/^\d+$/).test(phrase)) {
-			let idx = parseInt(phrase, 10) - 1;
+			const idx = parseInt(phrase, 10) - 1;
 			this.visibleCards = [];
 			if (this.cards[idx]) {
 				this.visibleCards.push(this.cards[idx]);
@@ -88,5 +89,6 @@ WaveListCtrl.$inject = [
 	"$ionicScrollDelegate",
 	"$stateParams",
 	"$timeout",
-	"WaveListSvc"
+	"WaveListSvc",
+	"LATEST_SERIES"
 ];

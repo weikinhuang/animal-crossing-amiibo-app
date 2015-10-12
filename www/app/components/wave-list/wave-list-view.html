@@ -39,6 +39,16 @@
 				'list-wrapper--searching' : viewCtrl.searchShown
 			 }"
 		>
+			<div ng-if="viewCtrl.setNotReleased"
+				 class="not-released-disclaimer"
+			>
+				This set has not been released.
+			</div>
+			<div ng-if="!viewCtrl.setNotReleased && viewCtrl.visibleCards.length === 0 && viewCtrl.searchShown"
+				 class="no-matches-found"
+			>
+				No matches found.
+			</div>
 			<div ng-repeat="card in viewCtrl.visibleCards track by card.id"
 				 ng-show="!viewCtrl.isFilteringOwned || !card.isOwned"
 				 class="list-card"
