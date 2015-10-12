@@ -18,6 +18,6 @@ gulp.task("dev", function() {
 	], ["eslint:build"]);
 
 	gulp.watch([
-		"public/static/app/**/*.{css,less}"
+		"./www/app/**/*.{css,less}"
 	], ["less"]);
 });

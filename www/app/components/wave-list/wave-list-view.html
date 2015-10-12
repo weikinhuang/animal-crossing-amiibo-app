@@ -1,16 +1,39 @@
 <ion-view view-title="Series {{ ::viewCtrl.seriesId }}">
-	<ion-content lazy-scroll>
-		<div style="display: flex; flex-flow: row wrap;">
-			<div ng-repeat="card in ::viewCtrl.cards track by card.id"
-				 style="height: 200px; flex: 1 1 auto;"
+	<ion-nav-buttons side="primary">
+		<div class="nav-icon-buttons">
+			<button class="button button-clear"
+					ng-click="viewCtrl.nav_popover.show($event)"
 			>
-				{{ card.id }}
+				<span class="ion-android-funnel"></span>
+			</button>
+			<button class="button button-clear"
+					ng-click="viewCtrl.nav_popover.show($event)"
+			>
+				<span class="ion-android-search"></span>
+			</button>
+		</div>
+	</ion-nav-buttons>
+	<ion-content lazy-scroll class="wave-list-view">
+		<div class="list-wrapper">
+			<div ng-repeat="card in viewCtrl.cards track by card.id"
+				 class="list-card"
+				 ng-class="{ 'card-owned' : card.owned }"
+			>
 				<img alt="{{ ::card.name }}"
-					 height="162" width="115"
+					 class="list-card-img"
 					 ng-src="img/cards/loading.jpg"
 					 image-lazy-distance-from-bottom-to-load="100"
 					 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
 					>
+				<a class="interaction-checkbox"
+					ng-click="card.owned = !card.owned">
+					<span class="interaction-checkbox-icon"
+						ng-class="{
+							'ion-android-checkbox' : card.owned,
+							'ion-android-checkbox-blank' : !card.owned
+					   }"
+					></span>
+				</a>
 			</div>
 		</div>
 	</ion-content>

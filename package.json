@@ -16,6 +16,7 @@
     "brfs": "1.4.1",
     "browserify": "11.2.0",
     "browserify-shim": "3.8.10",
+    "fuse.js": "1.2.2",
     "glob": "5.0.15",
     "gulp": "3.9.0",
     "gulp-concat": "2.6.0",

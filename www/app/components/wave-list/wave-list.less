@@ -1,0 +1,58 @@
+.wave-list-view {
+
+	.list-wrapper {
+		@card-width: 108px;
+		@card-height: @card-width * @card-img-height-ratio;
+
+		display: flex;
+		flex-flow: row wrap;
+		padding: 10px 0;
+
+		.list-card {
+			flex: 1 1 auto;
+			position: relative;
+			padding: 5px 2px;
+			text-align: center;
+
+			.list-card-img {
+				height: @card-height;
+				width: @card-width;
+			}
+
+			&.card-owned {
+				.list-card-img {
+					filter: grayscale(100%) brightness(120%);
+				}
+			}
+
+			.interaction-checkbox {
+				@icon-size: 24px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-size: @icon-size;
+				color: red;
+				background: #fff;
+				height: @icon-size;
+				line-height: @icon-size;
+				width: @icon-size;
+				text-align: center;
+				vertical-align: middle;
+				display: inline-block;
+				padding: 1px;
+
+				.interaction-checkbox-icon {
+					.center-XY;
+
+					height: @icon-size;
+					width: @icon-size;
+					line-height: @icon-size;
+					text-align: center;
+					vertical-align: middle;
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+}
