@@ -1,0 +1,40 @@
+.card-detail-view {
+
+	.card-img-wrapper {
+		display: block;
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+
+		.card-img {
+			@card-width: 160px;
+			@card-height: @card-width * @card-img-height-ratio;
+
+			height: @card-height;
+			width: @card-width;
+		}
+	}
+
+	.card-detail-name {
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+		color: #00957b;
+		margin: 10px 0;
+	}
+
+	.interaction-checkbox {
+		color: #00957b;
+	}
+
+	.list {
+		.item-title {
+			float: left;
+			font-weight: bold;
+		}
+		.item-value {
+			float: right;
+		}
+	}
+}

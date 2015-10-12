@@ -1,0 +1,40 @@
+<ion-view view-title="{{ viewCtrl.selectedCard.name || 'Loading...' }}">
+	<ion-content class="card-detail-view">
+		<div class="card-img-wrapper">
+			<img alt="{{ ::viewCtrl.selectedCard.name }}"
+				 class="card-img"
+				 ng-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::viewCtrl.selectedCard.id }}.png"
+			>
+		</div>
+		<div class="card-detail-name">{{ ::viewCtrl.selectedCard.name }}</div>
+		<ul class="list">
+			<li class="item clearfix">
+				<span class="item-title">Owned</span>
+				<span class="item-value">
+					<a class="interaction-checkbox"
+					   ng-click="viewCtrl.toggleCardOwnership()"
+					>
+						<span class="interaction-checkbox-icon"
+							  ng-class="{
+								'ion-android-checkbox' : viewCtrl.selectedCard.isOwned,
+								'ion-android-checkbox-blank' : !viewCtrl.selectedCard.isOwned
+						   }"
+						></span>
+					</a>
+				</span>
+			</li>
+			<li class="item clearfix">
+				<span class="item-title">Card Number</span>
+				<span class="item-value">{{ ::viewCtrl.selectedCard.id }}</span>
+			</li>
+			<li class="item clearfix">
+				<span class="item-title">Card Type</span>
+				<span class="item-value">{{ ::viewCtrl.selectedCard.type }}</span>
+			</li>
+			<li class="item clearfix">
+				<span class="item-title">Birthday</span>
+				<span class="item-value">{{ ::viewCtrl.selectedCard.birthday | date:'MMM dd' }}</span>
+			</li>
+		</ul>
+	</ion-content>
+</ion-view>

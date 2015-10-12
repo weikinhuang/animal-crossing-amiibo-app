@@ -56,7 +56,7 @@
 			>
 				<span class="list-card-img-wrapper">
 					<a class="list-card-img-link"
-					   ng-click="viewCtrl.showCardDetails(card)"
+					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
 					>
 						<img alt="{{ ::card.name }}"
 							 class="list-card-img"

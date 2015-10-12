@@ -9,7 +9,7 @@ export default class WaveListCtrl {
 	constructor(...injected) {
 		ngInjectDecorator(this, injected);
 
-		this.seriesId = this.$stateParams.seriesId;
+		this.seriesId = parseInt(this.$stateParams.seriesId, 10);
 		this.isFilteringOwned = false;
 		this.searchShown = false;
 		this.searchFilter = "";

@@ -1,4 +1,5 @@
 import { routeTemplate as frameRouteTemplate, routeController as frameRouteController } from "./components/frame/frame.module";
+import { routeTemplate as cardDetailRouteTemplate, routeController as cardDetailRouteController } from "./components/card-detail/card-detail.module";
 import { routeTemplate as dashRouteTemplate, routeController as dashRouteController } from "./components/dash/dash.module";
 import { routeTemplate as waveListRouteTemplate, routeController as waveListRouteController } from "./components/wave-list/wave-list.module";
 
@@ -32,6 +33,16 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				content : {
 					templateUrl : waveListRouteTemplate,
 					controller : `${waveListRouteController} as viewCtrl`
+				}
+			}
+		})
+
+		.state("app.card-detail", {
+			url : "/card-detail/:seriesId/:cardId",
+			views : {
+				content : {
+					templateUrl : cardDetailRouteTemplate,
+					controller : `${cardDetailRouteController} as viewCtrl`
 				}
 			}
 		})
