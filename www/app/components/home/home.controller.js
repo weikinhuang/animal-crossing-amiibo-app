@@ -1,4 +1,4 @@
-export default class DashCtrl {
+export default class HomeCtrl {
 
 	/**
 	 * Constructor
@@ -7,5 +7,5 @@ export default class DashCtrl {
 	}
 }
 
-DashCtrl.$inject = [
+HomeCtrl.$inject = [
 ];

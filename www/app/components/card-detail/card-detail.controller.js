@@ -30,13 +30,13 @@ export default class CardDetailCtrl {
 				if (selectedCard !== null) {
 					this.selectedCard = selectedCard;
 				} else {
-					this.$location.path("/app/dash");
+					this.$location.path("/app/home");
 				}
 			})
 			.catch(() => {
 				this.$ionicLoading.hide();
 				// redirect to home...
-				this.$location.path("/app/dash");
+				this.$location.path("/app/home");
 			});
 	}
 

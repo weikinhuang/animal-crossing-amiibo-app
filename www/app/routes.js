@@ -1,6 +1,6 @@
 import { routeTemplate as frameRouteTemplate, routeController as frameRouteController } from "./components/frame/frame.module";
 import { routeTemplate as cardDetailRouteTemplate, routeController as cardDetailRouteController } from "./components/card-detail/card-detail.module";
-import { routeTemplate as dashRouteTemplate, routeController as dashRouteController } from "./components/dash/dash.module";
+import { routeTemplate as homeRouteTemplate, routeController as homeRouteController } from "./components/home/home.module";
 import { routeTemplate as waveListRouteTemplate, routeController as waveListRouteController } from "./components/wave-list/wave-list.module";
 
 function routerConfig($stateProvider, $urlRouterProvider) {
@@ -17,12 +17,12 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 			controller : `${frameRouteController} as viewCtrl`
 		})
 
-		.state("app.dash", {
-			url : "/dash",
+		.state("app.home", {
+			url : "/home",
 			views : {
 				content : {
-					templateUrl : dashRouteTemplate,
-					controller : `${dashRouteController} as viewCtrl`
+					templateUrl : homeRouteTemplate,
+					controller : `${homeRouteController} as viewCtrl`
 				}
 			}
 		})
@@ -49,7 +49,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 	;
 
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise("/app/dash");
+	$urlRouterProvider.otherwise("/app/home");
 }
 
 export default [
