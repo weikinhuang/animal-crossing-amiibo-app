@@ -9,12 +9,12 @@ export default class WaveListCtrl {
 	constructor(...injected) {
 		ngInjectDecorator(this, injected);
 
-		this.seriesId = parseInt(this.$stateParams.seriesId, 10);
+		this.seriesId = this.$stateParams.seriesId;
 		this.viewState = "grid";
 		this.isFilteringOwned = false;
 		this.searchShown = false;
 		this.searchFilter = "";
-		this.setNotReleased = this.seriesId > this.LATEST_SERIES;
+		this.setNotReleased = !this.WaveListSvc.isValidSeries(this.seriesId);
 
 		this.$ionicLoading.show();
 
@@ -97,6 +97,5 @@ WaveListCtrl.$inject = [
 	"$ionicScrollDelegate",
 	"$stateParams",
 	"$timeout",
-	"WaveListSvc",
-	"LATEST_SERIES"
+	"WaveListSvc"
 ];

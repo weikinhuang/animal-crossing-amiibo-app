@@ -8,22 +8,35 @@ export default class CardDetailCtrl {
 	constructor(...injected) {
 		ngInjectDecorator(this, injected);
 
-		this.seriesId = parseInt(this.$stateParams.seriesId, 10);
-		this.cardId = parseInt(this.$stateParams.cardId, 10);
+		this.seriesId = this.$stateParams.seriesId;
+		this.cardId = this.$stateParams.cardId;
 
 		this.$ionicLoading.show();
 
 		this.WaveListSvc.load(this.seriesId)
 			.then((data) => {
 				this.$ionicLoading.hide();
-				if (data.cards[this.cardId - 1]) {
-					this.selectedCard = data.cards[this.cardId - 1];
+				// find card
+				let selectedCard = null;
+				data.cards.some((card) => {
+					/* eslint eqeqeq: 0 */
+					if (this.cardId == card.id) {
+						selectedCard = card;
+						return true;
+					}
+					return false;
+				});
+
+				if (selectedCard !== null) {
+					this.selectedCard = selectedCard;
 				} else {
-					throw new Error("Card does not exist.");
+					this.$location.path("/app/dash");
 				}
 			})
 			.catch(() => {
 				this.$ionicLoading.hide();
+				// redirect to home...
+				this.$location.path("/app/dash");
 			});
 	}
 
@@ -34,6 +47,7 @@ export default class CardDetailCtrl {
 
 CardDetailCtrl.$inject = [
 	"$ionicLoading",
+	"$location",
 	"$stateParams",
 	"WaveListSvc"
 ];

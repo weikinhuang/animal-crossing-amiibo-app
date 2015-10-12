@@ -12,8 +12,21 @@ export default class WaveListSvc {
 		this.httpPromises = {};
 	}
 
+	isValidSeries(seriesId) {
+		if (!seriesId) {
+			return false;
+		}
+		if (seriesId === "promo") {
+			return true;
+		}
+		if (seriesId < 1 || seriesId > this.LATEST_SERIES) {
+			return false;
+		}
+		return true;
+	}
+
 	load(seriesId) {
-		if (!seriesId || seriesId < 1 || seriesId > this.LATEST_SERIES) {
+		if (!this.isValidSeries(seriesId)) {
 			return this.$q.reject(new Error("unspecified series"));
 		}
 		const cachedData = this.cache.get(seriesId);
@@ -43,7 +56,7 @@ export default class WaveListSvc {
 	}
 
 	markOwnership(seriesId, card, isOwned = true) {
-		if (!seriesId || seriesId < 1 || seriesId > this.LATEST_SERIES) {
+		if (!this.isValidSeries(seriesId)) {
 			return;
 		}
 		const ownedCards = this.$localStorage.get("card-ownership-storage") || {};
