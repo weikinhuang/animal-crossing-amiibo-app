@@ -3,6 +3,7 @@
   "app_id": "",
   "gulpStartupTasks": [
     "less",
+    "sass",
     "js",
     "watch"
   ],

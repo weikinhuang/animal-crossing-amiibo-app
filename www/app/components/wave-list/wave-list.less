@@ -28,10 +28,10 @@
 			.interaction-checkbox {
 				@icon-size: 24px;
 				position: absolute;
-				top: 0;
+				bottom: 2px;
 				right: 0;
 				font-size: @icon-size;
-				color: red;
+				color: #000;
 				background: #fff;
 				height: @icon-size;
 				line-height: @icon-size;
@@ -40,6 +40,7 @@
 				vertical-align: middle;
 				display: inline-block;
 				padding: 1px;
+				border-radius: 2px;
 
 				.interaction-checkbox-icon {
 					.center-XY;
@@ -50,6 +51,10 @@
 					text-align: center;
 					vertical-align: middle;
 					display: inline-block;
+
+					&:before {
+						vertical-align: bottom;
+					}
 				}
 			}
 		}

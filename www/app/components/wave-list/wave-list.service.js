@@ -13,8 +13,7 @@ export default class WaveListSvc {
 	}
 
 	load(seriesId) {
-		if (!seriesId) {
-			console.log(seriesId);
+		if (!seriesId || seriesId < 1 || seriesId > this.LATEST_SERIES) {
 			return this.$q.reject(new Error("unspecified series"));
 		}
 		const cachedData = this.cache.get(seriesId);
@@ -26,14 +25,42 @@ export default class WaveListSvc {
 				.then((data) => {
 					this.cache.put(seriesId, data.data);
 					return data.data;
+				})
+				.then((data) => {
+					const ownedCardsInSeries = this.loadOwnedCardData(seriesId);
+					data.cards.forEach((card) => {
+						card.isOwned = !!ownedCardsInSeries[card.id];
+					});
+					return data;
 				});
 		}
 		return this.httpPromises[seriesId];
+	}
+
+	loadOwnedCardData(seriesId) {
+		const ownedCards = this.$localStorage.get("card-ownership-storage") || {};
+		return ownedCards[seriesId] || {};
+	}
+
+	markOwnership(seriesId, card, isOwned = true) {
+		if (!seriesId || seriesId < 1 || seriesId > this.LATEST_SERIES) {
+			return;
+		}
+		const ownedCards = this.$localStorage.get("card-ownership-storage") || {};
+		if (!ownedCards[seriesId]) {
+			ownedCards[seriesId] = {};
+		}
+		ownedCards[seriesId][card.id] = !!isOwned;
+		card.isOwned = !!isOwned;
+
+		this.$localStorage.set("card-ownership-storage", ownedCards);
 	}
 }
 
 WaveListSvc.$inject = [
 	"$cacheFactory",
 	"$http",
-	"$q"
+	"$localStorage",
+	"$q",
+	"LATEST_SERIES"
 ];

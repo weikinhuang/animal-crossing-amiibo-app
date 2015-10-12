@@ -12,7 +12,7 @@ gulp.task("sass:app", function(done) {
 		.pipe(sass({
 			errLogToConsole : true
 		}))
-		.pipe(gulp.dest("./www/css/"))
+		.pipe(gulp.dest("./www/dist/"))
 		.pipe(minifyCss({
 			keepSpecialComments : 0
 		}))

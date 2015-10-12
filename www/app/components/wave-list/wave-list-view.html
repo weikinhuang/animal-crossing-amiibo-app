@@ -2,35 +2,47 @@
 	<ion-nav-buttons side="primary">
 		<div class="nav-icon-buttons">
 			<button class="button button-clear"
-					ng-click="viewCtrl.nav_popover.show($event)"
+					ng-click="viewCtrl.toggleOnlyOwned()"
 			>
 				<span class="ion-android-funnel"></span>
 			</button>
 			<button class="button button-clear"
-					ng-click="viewCtrl.nav_popover.show($event)"
+					ng-click="viewCtrl.showSearch()"
 			>
 				<span class="ion-android-search"></span>
 			</button>
 		</div>
 	</ion-nav-buttons>
+	<ion-header-bar class="bar bar-subheader item-input-inset bar-light" ng-if="viewCtrl.searchShown">
+		<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="Search...">
+		</label>
+		<button class="button button-clear"
+				ng-click="viewCtrl.hideSearch()"
+		>
+			Cancel
+		</button>
+	</ion-header-bar>
 	<ion-content lazy-scroll class="wave-list-view">
 		<div class="list-wrapper">
 			<div ng-repeat="card in viewCtrl.cards track by card.id"
+				 ng-show="!viewCtrl.isFilteringOwned || !card.isOwned"
 				 class="list-card"
-				 ng-class="{ 'card-owned' : card.owned }"
+				 ng-class="{ 'card-owned' : card.isOwned }"
 			>
 				<img alt="{{ ::card.name }}"
 					 class="list-card-img"
-					 ng-src="img/cards/loading.jpg"
+					 ng-src="img/cards/loading.png"
 					 image-lazy-distance-from-bottom-to-load="100"
 					 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
 					>
 				<a class="interaction-checkbox"
-					ng-click="card.owned = !card.owned">
+					ng-click="viewCtrl.toggleCardOwnership(card)">
 					<span class="interaction-checkbox-icon"
 						ng-class="{
-							'ion-android-checkbox' : card.owned,
-							'ion-android-checkbox-blank' : !card.owned
+							'ion-android-checkbox' : card.isOwned,
+							'ion-android-checkbox-blank' : !card.isOwned
 					   }"
 					></span>
 				</a>
