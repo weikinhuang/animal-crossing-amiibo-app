@@ -1,3 +1,4 @@
+import Fuse from "fuse.js";
 import ngInjectDecorator from "../../decorators/ng-inject";
 
 export default class WaveListCtrl {
@@ -11,6 +12,7 @@ export default class WaveListCtrl {
 		this.seriesId = this.$stateParams.wave;
 		this.isFilteringOwned = false;
 		this.searchShown = false;
+		this.searchFilter = "";
 
 		this.$ionicLoading.show();
 
@@ -28,7 +30,7 @@ export default class WaveListCtrl {
 	processSeriesData(data) {
 		this.cards = data.cards;
 		this.visibleCards = this.cards.slice(0);
-		console.log(this.cards[0]);
+		this.fuseIndex = new Fuse(this.cards.slice(0), { keys : ["name"] });
 	}
 
 	toggleCardOwnership(card) {
@@ -41,16 +43,39 @@ export default class WaveListCtrl {
 
 	showSearch() {
 		this.searchShown = true;
-		this.$timeout(() => {
-			this.$ionicScrollDelegate.resize();
-		}, 1000);
 	}
 
 	hideSearch() {
 		this.searchShown = false;
+		this.searchFilter = "";
+		this.visibleCards = this.cards.slice(0);
+		// force scroll to top
 		this.$timeout(() => {
-			this.$ionicScrollDelegate.resize();
-		}, 1000);
+			this.$ionicScrollDelegate.scrollTop();
+		});
+	}
+
+	filterCards() {
+		const phrase = this.searchFilter;
+		// force scroll to top
+		this.$timeout(() => {
+			this.$ionicScrollDelegate.scrollTop();
+		});
+		// nothing to search against
+		if (!phrase) {
+			this.visibleCards = this.cards.slice(0);
+			return;
+		}
+		// we're looking for a number
+		if ((/^\d+$/).test(phrase)) {
+			let idx = parseInt(phrase, 10) - 1;
+			this.visibleCards = [];
+			if (this.cards[idx]) {
+				this.visibleCards.push(this.cards[idx]);
+			}
+			return;
+		}
+		this.visibleCards = this.fuseIndex.search(phrase);
 	}
 }
 

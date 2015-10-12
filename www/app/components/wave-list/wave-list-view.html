@@ -13,10 +13,16 @@
 			</button>
 		</div>
 	</ion-nav-buttons>
-	<ion-header-bar class="bar bar-subheader item-input-inset bar-light" ng-if="viewCtrl.searchShown">
+	<ion-header-bar class="bar bar-subheader item-input-inset bar-light"
+					ng-if="viewCtrl.searchShown"
+	>
 		<label class="item-input-wrapper">
 			<i class="icon ion-ios-search placeholder-icon"></i>
-			<input type="search" placeholder="Search...">
+			<input type="search"
+				   placeholder="Search..."
+				   ng-model="viewCtrl.searchFilter"
+				   ng-keyup="viewCtrl.filterCards()"
+				>
 		</label>
 		<button class="button button-clear"
 				ng-click="viewCtrl.hideSearch()"
@@ -25,8 +31,12 @@
 		</button>
 	</ion-header-bar>
 	<ion-content lazy-scroll class="wave-list-view">
-		<div class="list-wrapper">
-			<div ng-repeat="card in viewCtrl.cards track by card.id"
+		<div class="list-wrapper"
+			 ng-class="{
+				'list-wrapper--searching' : viewCtrl.searchShown
+			 }"
+		>
+			<div ng-repeat="card in viewCtrl.visibleCards track by card.id"
 				 ng-show="!viewCtrl.isFilteringOwned || !card.isOwned"
 				 class="list-card"
 				 ng-class="{ 'card-owned' : card.isOwned }"
