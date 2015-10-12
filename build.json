@@ -1,0 +1,18 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "./keys/android.debug.keystore",
+      "storePassword": "animal-crossing-amiibo-app",
+      "alias": "animal-crossing-amiibo-app",
+      "password": "animal-crossing-amiibo-app",
+      "keystoreType": ""
+    },
+    "release": {
+      "keystore": "./keys/android.keystore",
+      "storePassword": "",
+      "alias": "",
+      "password": "",
+      "keystoreType": ""
+    }
+  }
+}
