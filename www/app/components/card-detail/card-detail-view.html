@@ -1,4 +1,7 @@
-<ion-view view-title="{{ viewCtrl.selectedCard.name || 'Loading...' }}">
+<ion-view>
+	<ion-nav-title>
+		{{ viewCtrl.selectedCard.name || "Loading..." }}
+	</ion-nav-title>
 	<ion-content class="card-detail-view">
 		<div class="card-img-wrapper">
 			<img alt="{{ ::viewCtrl.selectedCard.name }}"
@@ -22,6 +25,10 @@
 						></span>
 					</a>
 				</span>
+			</li>
+			<li class="item clearfix">
+				<span class="item-title">Series</span>
+				<span class="item-value">{{ ::viewCtrl.seriesId }}</span>
 			</li>
 			<li class="item clearfix">
 				<span class="item-title">Card Number</span>
