@@ -18,6 +18,11 @@
 			padding: 5px 2px;
 			text-align: center;
 
+			.list-card-img-wrapper {
+				position: relative;
+				display: inline-block;
+			}
+
 			.list-card-img {
 				height: @card-height;
 				width: @card-width;
@@ -32,8 +37,8 @@
 			.interaction-checkbox {
 				@icon-size: 24px;
 				position: absolute;
-				bottom: 2px;
-				right: 0;
+				bottom: -2px;
+				right: -6px;
 				font-size: @icon-size;
 				color: #000;
 				background: #fff;
@@ -64,4 +69,8 @@
 		}
 	}
 
+}
+
+.filter-button-active {
+	opacity: 0.4;
 }

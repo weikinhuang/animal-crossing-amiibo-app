@@ -77,6 +77,10 @@ export default class WaveListCtrl {
 		}
 		this.visibleCards = this.fuseIndex.search(phrase);
 	}
+
+	showCardDetails(card) {
+		console.log(card);
+	}
 }
 
 WaveListCtrl.$inject = [

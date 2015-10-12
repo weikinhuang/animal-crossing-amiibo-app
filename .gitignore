@@ -15,3 +15,6 @@ thumbs.db
 
 # generated files
 www/dist/*
+
+# keystore
+keys/android.keystore

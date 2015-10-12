@@ -3,6 +3,9 @@
 		<div class="nav-icon-buttons">
 			<button class="button button-clear"
 					ng-click="viewCtrl.toggleOnlyOwned()"
+					ng-class="{
+						'filter-button-active' : !viewCtrl.isFilteringOwned
+					}"
 			>
 				<span class="ion-android-funnel"></span>
 			</button>
@@ -41,21 +44,27 @@
 				 class="list-card"
 				 ng-class="{ 'card-owned' : card.isOwned }"
 			>
-				<img alt="{{ ::card.name }}"
-					 class="list-card-img"
-					 ng-src="img/cards/loading.png"
-					 image-lazy-distance-from-bottom-to-load="100"
-					 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
+				<span class="list-card-img-wrapper">
+					<a class="list-card-img-link"
+					   ng-click="viewCtrl.showCardDetails(card)"
 					>
-				<a class="interaction-checkbox"
-					ng-click="viewCtrl.toggleCardOwnership(card)">
-					<span class="interaction-checkbox-icon"
-						ng-class="{
-							'ion-android-checkbox' : card.isOwned,
-							'ion-android-checkbox-blank' : !card.isOwned
-					   }"
-					></span>
-				</a>
+						<img alt="{{ ::card.name }}"
+							 class="list-card-img"
+							 ng-src="img/cards/loading.png"
+							 image-lazy-distance-from-bottom-to-load="100"
+							 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
+							>
+					</a>
+					<a class="interaction-checkbox"
+						ng-click="viewCtrl.toggleCardOwnership(card)">
+						<span class="interaction-checkbox-icon"
+							ng-class="{
+								'ion-android-checkbox' : card.isOwned,
+								'ion-android-checkbox-blank' : !card.isOwned
+						   }"
+						></span>
+					</a>
+				</span>
 			</div>
 		</div>
 	</ion-content>

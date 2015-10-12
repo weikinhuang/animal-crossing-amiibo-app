@@ -8,8 +8,20 @@ var eslintOpts = {
 };
 
 gulp.task("eslint", [
+	"eslint:build",
 	"eslint:web"
 ]);
+
+gulp.task("eslint:build", function() {
+	var cached = require("gulp-cached");
+	return gulp.src([
+		"Gulpfile.js",
+		"gulp/*.js"
+	])
+		.pipe(cached("eslint:build"))
+		.pipe(eslint(eslintOpts))
+		.pipe(eslint.format());
+});
 
 gulp.task("eslint:web", function() {
 	var cached = require("gulp-cached");
