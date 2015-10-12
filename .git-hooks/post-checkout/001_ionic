@@ -10,10 +10,20 @@ if ! type node &> /dev/null; then
     exit 0
 fi
 
+OLD_SHA=$1
+NEW_SHA=$2
 # only do something if a file has changed
-CHANGED_FILES="$(git diff --name-only $1 $2)"
+CHANGED_FILES="$(git diff --name-only ${OLD_SHA} ${NEW_SHA})"
 
 # update npm/cordova dependencies
 if echo "$CHANGED_FILES" | grep package.json &> /dev/null; then
-    ionic state restore
+    CORDOVA_PLUGINS_OLD="$(git show ${OLD_SHA}:package.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["cordovaPlugins"]')"
+    CORDOVA_PLUGINS_NEW="$(git show ${NEW_SHA}:package.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["cordovaPlugins"]')"
+    CORDOVA_PLATFORMS_OLD="$(git show ${OLD_SHA}:package.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["cordovaPlatforms"]')"
+    CORDOVA_PLATFORMS_NEW="$(git show ${NEW_SHA}:package.json | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["cordovaPlatforms"]')"
+
+    # run state restore if cordova specific settings changed
+    if [[ "$CORDOVA_PLUGINS_OLD" != "$CORDOVA_PLUGINS_NEW" ]] || [[ "$CORDOVA_PLATFORMS_OLD" != "$CORDOVA_PLATFORMS_NEW" ]]; then
+        ionic state restore
+    fi
 fi
