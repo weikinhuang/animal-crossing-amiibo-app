@@ -10,13 +10,16 @@
 				<span class="ion-android-funnel"></span>
 			</button>
 			<button class="button button-clear"
-					ng-click="viewCtrl.toggleViewState()"
+					ng-show="viewCtrl.viewState === 'list'"
+					ng-click="viewCtrl.viewState = 'grid'"
 			>
-				<span ng-class="{
-								'ion-navicon-round' : viewCtrl.viewState === 'list',
-								'ion-grid' : viewCtrl.viewState === 'grid'
-						   }"
-				></span>
+				<span class="ion-grid"></span>
+			</button>
+			<button class="button button-clear"
+					ng-show="viewCtrl.viewState === 'grid'"
+					ng-click="viewCtrl.viewState = 'list'"
+			>
+				<span class="ion-navicon-round"></span>
 			</button>
 			<button class="button button-clear"
 					ng-click="viewCtrl.showSearch()"
@@ -68,7 +71,7 @@
 				 class="list-card"
 				 ng-class="{ 'card-owned' : card.isOwned }"
 			>
-				<div class="list-card-list-wrapper" ng-show="viewCtrl.viewState === 'list'">
+				<div class="list-card-list-wrapper" ng-if="viewCtrl.viewState === 'list'">
 					<span class="list-card-list-cell list-card-number">{{ ::card.id }}</span>
 					<a class="list-card-list-cell list-card-name"
 					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
@@ -86,7 +89,7 @@
 						</a>
 					</span>
 				</div>
-				<span class="list-card-img-wrapper" ng-show="viewCtrl.viewState === 'grid'">
+				<span class="list-card-img-wrapper" ng-if="viewCtrl.viewState === 'grid'">
 					<a class="list-card-img-link"
 					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
 					>

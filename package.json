@@ -63,6 +63,7 @@
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
+    "cordova-plugin-crosswalk-webview",
     "ionic-plugin-keyboard",
     {
       "id": "cordova-plugin-whitelist",

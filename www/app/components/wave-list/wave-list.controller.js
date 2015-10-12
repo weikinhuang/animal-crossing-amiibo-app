@@ -82,14 +82,6 @@ export default class WaveListCtrl {
 		}
 		this.visibleCards = this.fuseIndex.search(phrase);
 	}
-
-	toggleViewState() {
-		if (this.viewState === "grid") {
-			this.viewState = "list";
-		} else {
-			this.viewState = "grid";
-		}
-	}
 }
 
 WaveListCtrl.$inject = [

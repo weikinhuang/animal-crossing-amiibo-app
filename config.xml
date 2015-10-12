@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.animalcrossingamiiboapp161443" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>animal-crossing-amiibo-app</name>
+  <name>Animal Crossing Amiibo Checklist</name>
   <description>
     Animal Crossing amiibo cards checklist
     </description>
   <author email="wei@closedinterval.com" href="https://www.closedinterval.com/">
-      Ionic Framework Team
+      Wei Kin Huang
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -16,7 +16,10 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
-  <preference name="orientation" value="portrait" />
+  <preference name="orientation" value="portrait"/>
+  <preference name="xwalkVersion" value="14+"/>
+  <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect"/>
+  <preference name="xwalkMode" value="embedded"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
