@@ -9,7 +9,7 @@ export default class WaveListCtrl {
 	constructor(...injected) {
 		ngInjectDecorator(this, injected);
 
-		this.seriesId = this.$stateParams.wave;
+		this.seriesId = this.$stateParams.seriesId;
 		this.isFilteringOwned = false;
 		this.searchShown = false;
 		this.searchFilter = "";
@@ -77,10 +77,6 @@ export default class WaveListCtrl {
 			return;
 		}
 		this.visibleCards = this.fuseIndex.search(phrase);
-	}
-
-	showCardDetails(card) {
-		console.log(card);
 	}
 }
 

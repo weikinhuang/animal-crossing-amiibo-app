@@ -27,7 +27,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 		})
 
 		.state("app.wave-list", {
-			url : "/wave-list/:wave",
+			url : "/wave-list/:seriesId",
 			views : {
 				content : {
 					templateUrl : waveListRouteTemplate,

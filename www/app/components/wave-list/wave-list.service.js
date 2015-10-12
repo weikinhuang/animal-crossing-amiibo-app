@@ -55,6 +55,10 @@ export default class WaveListSvc {
 
 		this.$localStorage.set("card-ownership-storage", ownedCards);
 	}
+
+	clearOwnershipData() {
+		this.$localStorage.remove("card-ownership-storage");
+	}
 }
 
 WaveListSvc.$inject = [
