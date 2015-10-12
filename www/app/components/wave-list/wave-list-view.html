@@ -10,6 +10,15 @@
 				<span class="ion-android-funnel"></span>
 			</button>
 			<button class="button button-clear"
+					ng-click="viewCtrl.toggleViewState()"
+			>
+				<span ng-class="{
+								'ion-navicon-round' : viewCtrl.viewState === 'list',
+								'ion-grid' : viewCtrl.viewState === 'grid'
+						   }"
+				></span>
+			</button>
+			<button class="button button-clear"
 					ng-click="viewCtrl.showSearch()"
 			>
 				<span class="ion-android-search"></span>
@@ -33,10 +42,15 @@
 			Cancel
 		</button>
 	</ion-header-bar>
-	<ion-content lazy-scroll class="wave-list-view">
+	<ion-content lazy-scroll
+				 class="wave-list-view"
+				 ng-class="[ 'card-series--' + viewCtrl.seriesId ]"
+	>
 		<div class="list-wrapper"
 			 ng-class="{
-				'list-wrapper--searching' : viewCtrl.searchShown
+				'list-wrapper--searching' : viewCtrl.searchShown,
+				'list-wrapper--state-grid' : viewCtrl.viewState === 'grid',
+				'list-wrapper--state-list' : viewCtrl.viewState === 'list'
 			 }"
 		>
 			<div ng-if="viewCtrl.setNotReleased"
@@ -54,7 +68,25 @@
 				 class="list-card"
 				 ng-class="{ 'card-owned' : card.isOwned }"
 			>
-				<span class="list-card-img-wrapper">
+				<div class="list-card-list-wrapper" ng-show="viewCtrl.viewState === 'list'">
+					<span class="list-card-list-cell list-card-number">{{ ::card.id }}</span>
+					<a class="list-card-list-cell list-card-name"
+					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
+					>{{ ::card.name }}</a>
+					<span class="list-card-list-cell list-card-ownership">
+						<a class="interaction-checkbox"
+						   ng-click="viewCtrl.toggleCardOwnership(card)"
+						>
+							<span class="interaction-checkbox-icon"
+								  ng-class="{
+									'ion-android-checkbox-outline' : card.isOwned,
+									'ion-android-checkbox-outline-blank' : !card.isOwned
+							   }"
+							></span>
+						</a>
+					</span>
+				</div>
+				<span class="list-card-img-wrapper" ng-show="viewCtrl.viewState === 'grid'">
 					<a class="list-card-img-link"
 					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
 					>
@@ -66,7 +98,8 @@
 							>
 					</a>
 					<a class="interaction-checkbox"
-						ng-click="viewCtrl.toggleCardOwnership(card)">
+						ng-click="viewCtrl.toggleCardOwnership(card)"
+					>
 						<span class="interaction-checkbox-icon"
 							ng-class="{
 								'ion-android-checkbox' : card.isOwned,

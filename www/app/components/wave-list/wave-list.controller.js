@@ -10,6 +10,7 @@ export default class WaveListCtrl {
 		ngInjectDecorator(this, injected);
 
 		this.seriesId = parseInt(this.$stateParams.seriesId, 10);
+		this.viewState = "grid";
 		this.isFilteringOwned = false;
 		this.searchShown = false;
 		this.searchFilter = "";
@@ -31,7 +32,10 @@ export default class WaveListCtrl {
 	processSeriesData(data) {
 		this.cards = data.cards;
 		this.visibleCards = this.cards.slice(0);
-		this.fuseIndex = new Fuse(this.cards.slice(0), { keys : ["name"] });
+		this.fuseIndex = new Fuse(this.cards.slice(0), {
+			keys : ["name"],
+			shouldSort : true /* sort by score */
+		});
 	}
 
 	toggleCardOwnership(card) {
@@ -77,6 +81,14 @@ export default class WaveListCtrl {
 			return;
 		}
 		this.visibleCards = this.fuseIndex.search(phrase);
+	}
+
+	toggleViewState() {
+		if (this.viewState === "grid") {
+			this.viewState = "list";
+		} else {
+			this.viewState = "grid";
+		}
 	}
 }
 

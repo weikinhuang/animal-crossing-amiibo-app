@@ -23,57 +23,103 @@
 			padding-top: 44px;
 		}
 
-		.list-card {
-			flex: 1 1 auto;
-			position: relative;
-			padding: 5px 2px;
-			text-align: center;
+		&.list-wrapper--state-list {
+			display: block;
+			flex-flow: column;
 
-			.list-card-img-wrapper {
-				position: relative;
-				display: inline-block;
-			}
+			.list-card {
+				display: table;
+				width: 100%;
+				padding: 0;
 
-			.list-card-img {
-				height: @card-height;
-				width: @card-width;
-			}
+				&:nth-child(even) .list-card-list-wrapper {
+					background: #fafafa;
+				}
 
-			&.card-owned {
-				.list-card-img {
-					filter: grayscale(100%) brightness(120%);
+				.list-card-list-wrapper {
+					display: table-row;
+
+					.list-card-list-cell {
+						display: table-cell;
+						padding: 12px 10px;
+						box-sizing: border-box;
+						font-size: 20px;
+					}
+
+					.list-card-number {
+						width: 60px;
+						padding-left: 20px;
+						text-align: right;
+						color: lighten(#000, 80%);
+					}
+					.list-card-name {
+						font-weight: bold;
+						text-decoration: none;
+						color: #000;
+					}
+					.list-card-ownership {
+						text-align: right;
+						width: 60px;
+						padding-right: 20px;
+						color: #00957b;
+					}
 				}
 			}
+		}
 
-			.interaction-checkbox {
-				@icon-size: 24px;
-				position: absolute;
-				bottom: -2px;
-				right: -6px;
-				font-size: @icon-size;
-				color: #000;
-				background: #fff;
-				height: @icon-size;
-				line-height: @icon-size;
-				width: @icon-size;
+		&.list-wrapper--state-grid {
+			.list-card {
+				flex: 1 1 auto;
+				position: relative;
+				padding: 5px 2px;
 				text-align: center;
-				vertical-align: middle;
-				display: inline-block;
-				padding: 1px;
-				border-radius: 2px;
 
-				.interaction-checkbox-icon {
-					.center-XY;
+				.list-card-img-wrapper {
+					position: relative;
+					display: inline-block;
+				}
 
+				.list-card-img {
+					height: @card-height;
+					width: @card-width;
+				}
+
+				&.card-owned {
+					.list-card-img {
+						filter: grayscale(100%) brightness(120%);
+					}
+				}
+
+				.interaction-checkbox {
+					@icon-size: 24px;
+					position: absolute;
+					bottom: -2px;
+					right: -6px;
+					font-size: @icon-size;
+					color: #000;
+					background: #fff;
 					height: @icon-size;
-					width: @icon-size;
 					line-height: @icon-size;
+					width: @icon-size;
 					text-align: center;
 					vertical-align: middle;
 					display: inline-block;
+					padding: 1px;
+					border-radius: 2px;
 
-					&:before {
-						vertical-align: bottom;
+					.interaction-checkbox-icon {
+						.center-XY;
+
+						height: @icon-size;
+						width: @icon-size;
+						line-height: @icon-size;
+						text-align: center;
+						vertical-align: middle;
+						display: inline-block;
+
+						&:before {
+							vertical-align: bottom;
+						}
 					}
 				}
 			}
