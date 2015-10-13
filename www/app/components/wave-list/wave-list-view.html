@@ -1,6 +1,6 @@
 <ion-view view-title="Series {{ ::viewCtrl.seriesId }}">
 	<ion-nav-buttons side="primary">
-		<div class="nav-icon-buttons">
+		<div class="nav-icon-buttons wave-list-nav-buttons">
 			<button class="button button-clear"
 					ng-click="viewCtrl.toggleOnlyOwned()"
 					ng-class="{
@@ -76,18 +76,16 @@
 					<a class="list-card-list-cell list-card-name"
 					   ng-href="#/app/card-detail/{{ ::viewCtrl.seriesId }}/{{ ::card.id }}"
 					>{{ ::card.name }}</a>
-					<span class="list-card-list-cell list-card-ownership">
-						<a class="interaction-checkbox"
-						   ng-click="viewCtrl.toggleCardOwnership(card)"
-						>
-							<span class="interaction-checkbox-icon"
-								  ng-class="{
-									'ion-android-checkbox-outline' : card.isOwned,
-									'ion-android-checkbox-outline-blank' : !card.isOwned
-							   }"
-							></span>
-						</a>
-					</span>
+					<a class="list-card-list-cell list-card-ownership"
+					   ng-click="viewCtrl.toggleCardOwnership(card)"
+					>
+						<span class="interaction-checkbox-icon"
+							  ng-class="{
+								'ion-android-checkbox-outline' : card.isOwned,
+								'ion-android-checkbox-outline-blank' : !card.isOwned
+						   }"
+						></span>
+					</a>
 				</div>
 				<span class="list-card-img-wrapper" ng-if="viewCtrl.viewState === 'grid'">
 					<a class="list-card-img-link"
@@ -100,15 +98,17 @@
 							 image-lazy-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::card.id }}.png"
 							>
 					</a>
-					<a class="interaction-checkbox"
-						ng-click="viewCtrl.toggleCardOwnership(card)"
+					<a class="interaction-checkbox-wrapper"
+					   ng-click="viewCtrl.toggleCardOwnership(card)"
 					>
-						<span class="interaction-checkbox-icon"
-							ng-class="{
-								'ion-android-checkbox' : card.isOwned,
-								'ion-android-checkbox-blank' : !card.isOwned
-						   }"
-						></span>
+						<span class="interaction-checkbox">
+							<span class="interaction-checkbox-icon"
+								ng-class="{
+									'ion-android-checkbox' : card.isOwned,
+									'ion-android-checkbox-blank' : !card.isOwned
+							   }"
+							></span>
+						</span>
 					</a>
 				</span>
 			</div>

@@ -13,12 +13,12 @@
 		</div>
 		<div class="card-detail-name">{{ ::viewCtrl.selectedCard.name }}</div>
 		<ul class="list">
-			<li class="item clearfix">
+			<li class="item clearfix"
+				ng-click="viewCtrl.toggleCardOwnership()"
+			>
 				<span class="item-title">Owned</span>
 				<span class="item-value">
-					<a class="interaction-checkbox"
-					   ng-click="viewCtrl.toggleCardOwnership()"
-					>
+					<a class="interaction-checkbox">
 						<span class="interaction-checkbox-icon"
 							  ng-class="{
 								'ion-android-checkbox' : viewCtrl.selectedCard.isOwned,

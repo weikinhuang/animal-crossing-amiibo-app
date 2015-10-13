@@ -56,10 +56,13 @@
 						font-weight: bold;
 						text-decoration: none;
 						color: #000;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
 					}
 					.list-card-ownership {
 						text-align: right;
-						width: 60px;
+						width: 80px;
 						padding-right: 20px;
 						color: #00957b;
 					}
@@ -90,11 +93,20 @@
 					}
 				}
 
-				.interaction-checkbox {
-					@icon-size: 24px;
+				.interaction-checkbox-wrapper {
 					position: absolute;
 					bottom: -2px;
 					right: -6px;
+					display: block;
+					height: 48px;
+					width: 48px;
+				}
+
+				.interaction-checkbox {
+					@icon-size: 24px;
+					position: absolute;
+					bottom: 0;
+					right: 0;
 					font-size: @icon-size;
 					color: #000;
 					background: #fff;
@@ -128,6 +140,12 @@
 
 }
 
-.filter-button-active {
-	opacity: 0.4;
+.wave-list-nav-buttons {
+	.bar-stable & .button.button-clear {
+		width: 42px;
+		font-size: 24px
+	}
+	.filter-button-active {
+		opacity: 0.4;
+	}
 }
