@@ -6,10 +6,11 @@ services:
       context: .
       args:
         - NODE_ENV=development
-    command: bash
+    command: ionic build android
     ports:
       - "8100:8100" # ionic serve port
       - "35729:35729" # live reload port
+    working_dir: /data
     volumes:
       # dev folders
       - ./bower.json:/data/bower.json
