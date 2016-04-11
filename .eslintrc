@@ -1,26 +1,13 @@
 {
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "binaryLiterals": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
-    "generators": true,
-    "modules": true,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "octalLiterals": true,
-    "regexUFlag": true,
-    "regexYFlag": true,
-    "superInFunctions": true,
-    "templateStrings": true,
-    "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": false
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "globalReturn": true,
+      "impliedStrict": true,
+      "jsx": false,
+      "experimentalObjectRestSpread": true
+    }
   },
   "env": {
     "browser": true,
@@ -29,6 +16,7 @@
     "mocha": true,
     "es6": true
   },
+  "extends": "eslint:recommended",
   "rules": {
     "comma-dangle": [
       2,
@@ -46,7 +34,6 @@
     "no-empty-character-class": 2,
     "no-ex-assign": 2,
     "no-extra-boolean-cast": 2,
-    "no-extra-parens": 2,
     "no-extra-semi": 2,
     "no-func-assign": 2,
     "no-inner-declarations": 2,
@@ -55,7 +42,6 @@
     "no-negated-in-lhs": 2,
     "no-obj-calls": 2,
     "no-regex-spaces": 2,
-    "quote-props": 1,
     "no-sparse-arrays": 2,
     "no-unreachable": 2,
     "use-isnan": 2,
@@ -72,7 +58,6 @@
     ],
     "valid-typeof": 2,
     "no-unexpected-multiline": 2,
-
     "block-scoped-var": 2,
     "complexity": [
       2,
@@ -95,6 +80,7 @@
     "no-caller": 2,
     "no-div-regex": 2,
     "no-else-return": 2,
+    "no-empty-pattern": 2,
     "no-eq-null": 0,
     "no-eval": 2,
     "no-extend-native": 2,
@@ -105,9 +91,16 @@
     "no-implied-eval": 2,
     "no-invalid-this": 2,
     "no-iterator": 2,
-    "no-labels": 2,
+    "no-labels": [
+      2,
+      {
+        "allowLoop": true,
+        "allowSwitch": true
+      }
+    ],
     "no-lone-blocks": 2,
     "no-loop-func": 2,
+    "no-magic-numbers": 0,
     "no-multi-spaces": 1,
     "no-multi-str": 2,
     "no-native-reassign": 2,
@@ -139,7 +132,6 @@
       1,
       "never"
     ],
-
     "strict": [
       0,
       "global"
@@ -164,7 +156,6 @@
       }
     ],
     "no-use-before-define": 2,
-
     "callback-return": 2,
     "handle-callback-err": 2,
     "no-mixed-requires": 0,
@@ -173,7 +164,6 @@
     "no-process-exit": 0,
     "no-restricted-modules": 1,
     "no-sync": 0,
-
     "indent": [
       0,
       "tab"
@@ -203,8 +193,9 @@
       "never"
     ],
     "consistent-this": [
-      1,
-      "self"
+      2,
+      "self",
+      "_this"
     ],
     "eol-last": 2,
     "func-names": 0,
@@ -217,6 +208,14 @@
       {
         "beforeColon": true,
         "afterColon": true
+      }
+    ],
+    "keyword-spacing": [
+      2,
+      {
+        "before": true,
+        "after": true,
+        "overrides": {}
       }
     ],
     "linebreak-style": [
@@ -235,7 +234,12 @@
     "no-inline-comments": 0,
     "no-lonely-if": 2,
     "no-mixed-spaces-and-tabs": 2,
-    "no-multiple-empty-lines": 2,
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2
+      }
+    ],
     "no-nested-ternary": 2,
     "no-new-object": 2,
     "no-spaced-func": 2,
@@ -277,14 +281,6 @@
       }
     ],
     "sort-vars": 0,
-    "space-after-keywords": [
-      2,
-      "always"
-    ],
-    "space-before-keywords": [
-      2,
-      "always"
-    ],
     "space-before-blocks": [
       2,
       "always"
@@ -302,7 +298,6 @@
       "never"
     ],
     "space-infix-ops": 2,
-    "space-return-throw-case": 2,
     "space-unary-ops": [
       2,
       {
@@ -327,8 +322,7 @@
       }
     ],
     "wrap-regex": 1,
-
-    "arrow-parens" : [
+    "arrow-parens": [
       2,
       "always"
     ],

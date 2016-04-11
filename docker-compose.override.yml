@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    command: bash
+    ports:
+      - "8100:8100" # ionic serve port
+      - "35729:35729" # live reload port
+    volumes:
+      # dev folders
+      - ./bower.json:/data/bower.json
+      - ./build.json:/data/build.json
+      - ./config.xml:/data/config.xml
+      - ./gulp:/data/gulp
+      - ./Gulpfile.js:/data/Gulpfile.js
+      - ./hooks:/data/hooks
+      - ./ionic.project:/data/ionic.project
+      - ./keys:/data/keys
+      - ./package.json:/data/package.json
+      - ./resources:/data/resources
+      - ./scss:/data/scss
+      - ./www:/data/www
+    environment:
+      - NODE_ENV=development

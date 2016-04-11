@@ -2,21 +2,21 @@
   "name": "animal-crossing-amiibo-app",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.1.0"
   },
   "resolutions": {
-    "angular": "1.4.7",
-    "angular-animate": "1.4.7",
-    "angular-sanitize": "1.4.7",
+    "angular": "1.5.3",
+    "angular-animate": "1.5.3",
+    "angular-sanitize": "1.5.3",
     "angular-ui-router": "0.2.15"
   },
   "dependencies": {
-    "angular": "1.4.7",
-    "angular-animate": "1.4.7",
-    "angular-sanitize": "1.4.7",
-    "angular-touch": "1.4.7",
+    "angular": "1.5.3",
+    "angular-animate": "1.5.3",
+    "angular-sanitize": "1.5.3",
+    "angular-touch": "1.5.3",
     "angular-ui-router": "0.2.15",
-    "es5-shim": "4.1.14",
+    "es5-shim": "4.5.8",
+    "ionic": "driftyco/ionic-bower#1.2.4",
     "ionic-image-lazy-load": "https://github.com/paveisistemas/ionic-image-lazy-load.git"
   }
 }

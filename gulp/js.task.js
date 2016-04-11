@@ -25,7 +25,7 @@ gulp.task("browserify:index", function() {
 	if (isWatching) {
 		return;
 	}
-	browserify({
+	return browserify({
 		entries : "./www/app/index.js",
 		debug : false
 	})
