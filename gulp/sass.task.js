@@ -2,7 +2,7 @@
 
 var gulp = require("gulp");
 var rename = require("gulp-rename");
-var minifyCss = require("gulp-minify-css");
+var cleanCss = require("gulp-clean-css");
 var sass = require("gulp-sass");
 
 gulp.task("sass", ["sass:app"]);
@@ -13,7 +13,7 @@ gulp.task("sass:app", function(done) {
 			errLogToConsole : true
 		}))
 		.pipe(gulp.dest("./www/dist/"))
-		.pipe(minifyCss({
+		.pipe(cleanCss({
 			keepSpecialComments : 0
 		}))
 		.pipe(rename("ionic.framework.min.css"))

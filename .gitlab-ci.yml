@@ -1,0 +1,12 @@
+stages:
+  - test
+
+eslint:
+  stage: test
+  image: node:5.10.1
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install eslint@$(node -p 'require("./package.json").devDependencies.eslint')
+    - ./node_modules/.bin/eslint --ignore-path .precommitignore .
