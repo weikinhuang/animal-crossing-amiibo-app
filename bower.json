@@ -16,7 +16,6 @@
     "angular-touch": "1.5.3",
     "angular-ui-router": "0.2.15",
     "es5-shim": "4.5.8",
-    "ionic": "driftyco/ionic-bower#1.2.4",
-    "ionic-image-lazy-load": "https://github.com/paveisistemas/ionic-image-lazy-load.git"
+    "ionic": "driftyco/ionic-bower#1.2.4"
   }
 }

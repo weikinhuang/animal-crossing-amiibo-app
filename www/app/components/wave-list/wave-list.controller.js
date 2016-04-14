@@ -44,6 +44,12 @@ export default class WaveListCtrl {
 
 	toggleOnlyOwned() {
 		this.isFilteringOwned = !this.isFilteringOwned;
+		if (this.isFilteringOwned) {
+			this.visibleCards = this.cards.filter((card) => !card.isOwned);
+		} else {
+			this.visibleCards = this.cards.slice(0);
+		}
+
 	}
 
 	showSearch() {
