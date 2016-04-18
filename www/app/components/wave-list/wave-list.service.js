@@ -1,5 +1,8 @@
 import ngInjectDecorator from "../../decorators/ng-inject";
 
+const LEGACY_CARD_OWNERSHIP_KEY = "card-ownership-storage";
+const CARD_OWNERSHIP_KEY = "card-ownership";
+
 export default class WaveListSvc {
 
 	/**
@@ -43,13 +46,22 @@ export default class WaveListSvc {
 			});
 	}
 
+	mergeOwnedCardData(data) {
+		const ownedCards = this.getOwnedCardData();
+		data.cards.forEach((card) => {
+			card.isOwned = ownedCards[card.id] && ownedCards[card.id].owned;
+		});
+		return data;
+	}
+
 	load(seriesId) {
 		if (!this.isValidSeries(seriesId)) {
 			return this.$q.reject(new Error("unspecified series"));
 		}
 		const cachedData = this.cache.get(seriesId);
 		if (cachedData) {
-			return this.$q.resolve(cachedData);
+			return this.$q.resolve(cachedData)
+				.then(this.mergeOwnedCardData.bind(this));
 		}
 		if (!this.httpPromises[seriesId]) {
 			this.httpPromises[seriesId] = this.$http.get(`data/wave-${seriesId}.json`)
@@ -57,38 +69,61 @@ export default class WaveListSvc {
 					this.cache.put(seriesId, data.data);
 					return data.data;
 				})
-				.then((data) => {
-					const ownedCardsInSeries = this.loadOwnedCardData(seriesId);
-					data.cards.forEach((card) => {
-						card.isOwned = !!ownedCardsInSeries[card.id];
-					});
-					return data;
-				});
+				.then(this.mergeOwnedCardData.bind(this));
 		}
 		return this.httpPromises[seriesId];
 	}
 
-	loadOwnedCardData(seriesId) {
-		const ownedCards = this.$localStorage.get("card-ownership-storage") || {};
-		return ownedCards[seriesId] || {};
+	migrateLegacyOwnedCardData() {
+		const ownedCardsLegacyFormat = this.$localStorage.get(LEGACY_CARD_OWNERSHIP_KEY) || {};
+		// clean up legacy data
+		this.$localStorage.remove(LEGACY_CARD_OWNERSHIP_KEY);
+		const ownedCards = {};
+		Object.keys(ownedCardsLegacyFormat).forEach((series) => {
+			Object.keys(ownedCardsLegacyFormat[series]).forEach((cardId) => {
+				ownedCards[cardId] = {
+					owned : !!ownedCardsLegacyFormat[series][cardId]
+				};
+			});
+		});
+		this.setOwnedCardData(ownedCards);
+		return ownedCardsLegacyFormat;
 	}
 
-	markOwnership(seriesId, card, isOwned = true) {
-		if (!this.isValidSeries(seriesId)) {
+	getOwnedCardData() {
+		// get current key
+		let ownedCards = this.$localStorage.get(CARD_OWNERSHIP_KEY);
+		// convert from legacy format
+		if (ownedCards === null) {
+			ownedCards = this.migrateLegacyOwnedCardData();
+		}
+		// default value
+		if (ownedCards === null) {
+			ownedCards = {};
+		}
+		return ownedCards;
+	}
+
+	setOwnedCardData(ownedCards) {
+		this.$localStorage.set(CARD_OWNERSHIP_KEY, ownedCards);
+	}
+
+	markOwnership(card, isOwned = true) {
+		if (!this.isValidSeries(card.wave)) {
 			return;
 		}
-		const ownedCards = this.$localStorage.get("card-ownership-storage") || {};
-		if (!ownedCards[seriesId]) {
-			ownedCards[seriesId] = {};
+		const ownedCards = this.getOwnedCardData();
+		if (!ownedCards[card.id]) {
+			ownedCards[card.id] = {};
 		}
-		ownedCards[seriesId][card.id] = !!isOwned;
+		ownedCards[card.id].owned = !!isOwned;
 		card.isOwned = !!isOwned;
 
-		this.$localStorage.set("card-ownership-storage", ownedCards);
+		this.setOwnedCardData(ownedCards);
 	}
 
 	clearOwnershipData() {
-		this.$localStorage.remove("card-ownership-storage");
+		this.$localStorage.remove(CARD_OWNERSHIP_KEY);
 	}
 }
 

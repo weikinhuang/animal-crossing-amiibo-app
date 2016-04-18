@@ -41,7 +41,7 @@ export default class CardDetailCtrl {
 	}
 
 	toggleCardOwnership() {
-		this.WaveListSvc.markOwnership(this.seriesId, this.selectedCard, !this.selectedCard.isOwned);
+		this.WaveListSvc.markOwnership(this.selectedCard, !this.selectedCard.isOwned);
 	}
 }
 
