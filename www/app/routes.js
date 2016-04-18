@@ -1,6 +1,7 @@
 import { routeTemplate as frameRouteTemplate, routeController as frameRouteController } from "./components/frame/frame.module";
 import { routeTemplate as cardDetailRouteTemplate, routeController as cardDetailRouteController } from "./components/card-detail/card-detail.module";
 import { routeTemplate as homeRouteTemplate, routeController as homeRouteController } from "./components/home/home.module";
+import { routeTemplate as settingsRouteTemplate, routeController as settingsRouteController } from "./components/settings/settings.module";
 import { routeTemplate as waveListRouteTemplate, routeController as waveListRouteController } from "./components/wave-list/wave-list.module";
 
 function routerConfig($stateProvider, $urlRouterProvider) {
@@ -23,6 +24,16 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 				content : {
 					templateUrl : homeRouteTemplate,
 					controller : `${homeRouteController} as viewCtrl`
+				}
+			}
+		})
+
+		.state("app.settings", {
+			url : "/settings",
+			views : {
+				content : {
+					templateUrl : settingsRouteTemplate,
+					controller : `${settingsRouteController} as viewCtrl`
 				}
 			}
 		})
