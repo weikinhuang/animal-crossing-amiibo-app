@@ -49,7 +49,7 @@ export default class WaveListCtrl {
 	}
 
 	toggleCardOwnership(card) {
-		this.WaveListSvc.markOwnership(this.seriesId, card, !card.isOwned);
+		this.WaveListSvc.markOwnership(card, !card.isOwned);
 	}
 
 	toggleOnlyOwned() {
@@ -59,7 +59,6 @@ export default class WaveListCtrl {
 		} else {
 			this.visibleCards = this.cards.slice(0);
 		}
-
 	}
 
 	showSearch() {
