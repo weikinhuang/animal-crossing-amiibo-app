@@ -25,6 +25,24 @@ export default class WaveListSvc {
 		return true;
 	}
 
+	loadAllSeries() {
+		let allSeries = [];
+		for (let i = 1; i <= this.LATEST_SERIES; i++) {
+			allSeries.push(this.load(i));
+		}
+		return this.$q.all(allSeries)
+			.then((data) => {
+				const cards = [];
+				data.forEach((series) => {
+					cards.push(...series.cards);
+				});
+				return {
+					wave : "all",
+					cards : cards
+				};
+			});
+	}
+
 	load(seriesId) {
 		if (!this.isValidSeries(seriesId)) {
 			return this.$q.reject(new Error("unspecified series"));
