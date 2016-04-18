@@ -28,7 +28,7 @@
 			</button>
 		</div>
 	</ion-nav-buttons>
-	<ion-header-bar class="bar bar-subheader item-input-inset bar-light"
+	<ion-header-bar class="bar bar-subheader item-input-inset bar-positive"
 					ng-if="viewCtrl.searchShown"
 	>
 		<label class="item-input-wrapper">
@@ -91,8 +91,8 @@
 			<div ng-if="viewCtrl.viewState === 'grid'">
 				<div collection-repeat="card in viewCtrl.visibleCards track by card.id"
 					 class="list-card"
-					 item-width="108px"
-					 item-height="172px"
+					 item-width="118px"
+					 item-height="176px"
 					 ng-class="{ 'card-owned' : card.isOwned }"
 				>
 					<span class="list-card-img-wrapper">
@@ -102,7 +102,7 @@
 							<img alt="{{ card.name }}"
 								 class="list-card-img"
 								 ang-src="img/cards/loading.png"
-								 ng-src="img/cards/wave-{{ viewCtrl.seriesId }}/{{ card.id }}.png"
+								 ng-src="img/cards/wave-{{ card.wave }}/{{ card.id }}.png"
 								>
 						</a>
 						<a class="interaction-checkbox-wrapper"

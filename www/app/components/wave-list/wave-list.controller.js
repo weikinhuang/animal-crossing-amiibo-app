@@ -18,7 +18,17 @@ export default class WaveListCtrl {
 
 		this.$ionicLoading.show();
 
-		this.WaveListSvc.load(this.seriesId)
+		this.loadData();
+	}
+
+	loadData() {
+		let loadPromise;
+		if (this.seriesId === "all") {
+			loadPromise = this.WaveListSvc.loadAllSeries();
+		} else {
+			loadPromise = this.WaveListSvc.load(this.seriesId);
+		}
+		loadPromise
 			.then((data) => {
 				this.$ionicLoading.hide();
 				this.processSeriesData(data);
