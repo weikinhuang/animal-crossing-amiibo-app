@@ -15,8 +15,6 @@
 		@card-width: 108px;
 		@card-height: @card-width * @card-img-height-ratio;
 
-		display: flex;
-		flex-flow: row wrap;
 		padding: 10px 0;
 
 		&.list-wrapper--searching {
@@ -32,7 +30,7 @@
 				width: 100%;
 				padding: 0;
 
-				&:nth-child(even) .list-card-list-wrapper {
+				&.even-row .list-card-list-wrapper {
 					background: #fafafa;
 				}
 
@@ -72,8 +70,6 @@
 
 		&.list-wrapper--state-grid {
 			.list-card {
-				flex: 1 1 auto;
-				position: relative;
 				padding: 5px 2px;
 				text-align: center;
 
