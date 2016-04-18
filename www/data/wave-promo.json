@@ -9,6 +9,13 @@
       "birthday": "9996-12-20T05:00:00.000Z"
     },
     {
+      "id": "CP2",
+      "type": "Special",
+      "name": "DJ KK",
+      "wave": "promo",
+      "birthday": "9996-08-23T04:00:00.000Z"
+    },
+    {
       "id": "AF1",
       "type": "Promo",
       "name": "Goldie",
