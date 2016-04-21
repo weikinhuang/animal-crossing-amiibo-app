@@ -10,3 +10,5 @@ eslint:
   script:
     - npm install eslint@$(node -p 'require("./package.json").devDependencies.eslint')
     - ./node_modules/.bin/eslint --ignore-path .precommitignore .
+  tags:
+    - docker
