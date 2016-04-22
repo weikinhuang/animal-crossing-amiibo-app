@@ -57,7 +57,7 @@ build-android:
   image: weikinhuang/ionic-android-build
   script:
     # quick reference env vars
-    - export ANDROID_APK_PATH=platforms/android/build/outputs/apk/android-armv7-debug.apk
+    - export ANDROID_APK_PATH=platforms/android/build/outputs/apk/android-armv7.apk
     - export ANDROID_APK_PACKAGE_NAME=$($ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH | grep package:\ name | cut -d ' ' -f 2 | sed "s/name='\(.\+\)'/\1/")
     # supply env vars
     - export SUPPLY_PACKAGE_NAME="$ANDROID_APK_PACKAGE_NAME"
