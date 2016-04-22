@@ -18,7 +18,12 @@ build-android:
   stage: build
   image: weikinhuang/ionic-android-build
   script:
-    - echo "$APP_SHA256SUM_TXT" | sha256sum -c -
+    # configure secrets!
+    - echo "$APP_ANDROID_BUILD_CONFIG" | tr -d '\r' | base64 -di > build.json
+    - echo "$APP_ANDROID_RELEASE_KEY" | tr -d '\r' | base64 -di > keys/android.release.keystore
+    - echo "$APP_SHA256SUM_TXT" | tr -d '\r' > SHA256SUM.txt
+    - sha256sum -c SHA256SUM.txt
+    - rm -f SHA256SUM.txt
     - unset APP_ANDROID_BUILD_CONFIG
     - unset APP_ANDROID_RELEASE_KEY
     - unset APP_SHA256SUM_TXT
@@ -33,7 +38,6 @@ build-android:
     # remove dev plugins
     - ionic plugin rm cordova-plugin-console
     # build android
-    #- ionic build --release android
-    - ionic build android
+    - ionic build --release android
   tags:
     - docker
