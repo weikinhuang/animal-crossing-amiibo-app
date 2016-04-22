@@ -18,6 +18,10 @@ build-android:
   stage: build
   image: weikinhuang/ionic-android-build
   script:
+    - echo "$APP_SHA256SUM_TXT" | sha256sum -c -
+    - unset APP_ANDROID_BUILD_CONFIG
+    - unset APP_ANDROID_RELEASE_KEY
+    - unset APP_SHA256SUM_TXT
     # prepare for build
     - npm install --quiet
     - bower install --allow-root --quiet
