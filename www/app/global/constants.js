@@ -7,7 +7,6 @@ export default module.name;
 
 
 module
-	.constant("APP_VERSION", "1.0.3")
 	.constant("LATEST_SERIES", 3)
 	.constant("MIN_CARD_ID", 1)
 	.constant("MAX_CARD_ID", 300)

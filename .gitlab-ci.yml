@@ -1,5 +1,6 @@
 stages:
   - test
+  - build
 
 eslint:
   stage: test
@@ -10,5 +11,25 @@ eslint:
   script:
     - npm install eslint@$(node -p 'require("./package.json").devDependencies.eslint')
     - ./node_modules/.bin/eslint --ignore-path .precommitignore .
+  tags:
+    - docker
+
+build-android:
+  stage: build
+  image: weikinhuang/ionic-android-build
+  script:
+    # prepare for build
+    - npm install --quiet
+    - bower install --allow-root --quiet
+    # set build id
+    - sed -i 's/android-versionCode="0"/android-versionCode="'$CI_BUILD_ID'"/' config.xml
+    # reset plugins
+    - gulp dist
+    - ionic state reset
+    # remove dev plugins
+    - ionic plugin rm cordova-plugin-console
+    # build android
+    #- ionic build --release android
+    - ionic build android
   tags:
     - docker
