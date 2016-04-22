@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.animalcrossingamiiboapp161443" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.closedinterval.apps.animalcrossingamiibo"
+        version="1.0.3"
+        android-versionCode="0"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Animal Crossing Amiibo Checklist</name>
     <description>
-    Animal Crossing amiibo cards checklist
+      Animal Crossing amiibo cards checklist
     </description>
     <author email="wei@closedinterval.com" href="https://www.closedinterval.com/">
       Wei Kin Huang
