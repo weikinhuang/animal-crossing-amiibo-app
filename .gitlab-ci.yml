@@ -1,7 +1,21 @@
 stages:
   - test
   - build
+  - deploy
 
+# setup builds
+before_script:
+  # configure secrets!
+  - echo "$APP_ANDROID_BUILD_CONFIG" | tr -d '\r' | base64 -di > build.json
+  - echo "$APP_ANDROID_RELEASE_KEY" | tr -d '\r' | base64 -di > keys/android.release.keystore
+  - echo "$APP_SHA256SUM_TXT" | tr -d '\r' > SHA256SUM.txt
+  - sha256sum -c SHA256SUM.txt
+  - rm -f SHA256SUM.txt
+  - unset APP_ANDROID_BUILD_CONFIG
+  - unset APP_ANDROID_RELEASE_KEY
+  - unset APP_SHA256SUM_TXT
+
+# lint
 eslint:
   stage: test
   image: node:5.10.1
@@ -14,19 +28,11 @@ eslint:
   tags:
     - docker
 
+# compile the android app
 build-android:
   stage: build
   image: weikinhuang/ionic-android-build
   script:
-    # configure secrets!
-    - echo "$APP_ANDROID_BUILD_CONFIG" | tr -d '\r' | base64 -di > build.json
-    - echo "$APP_ANDROID_RELEASE_KEY" | tr -d '\r' | base64 -di > keys/android.release.keystore
-    - echo "$APP_SHA256SUM_TXT" | tr -d '\r' > SHA256SUM.txt
-    - sha256sum -c SHA256SUM.txt
-    - rm -f SHA256SUM.txt
-    - unset APP_ANDROID_BUILD_CONFIG
-    - unset APP_ANDROID_RELEASE_KEY
-    - unset APP_SHA256SUM_TXT
     # prepare for build
     - npm install --quiet
     - bower install --allow-root --quiet
@@ -39,5 +45,31 @@ build-android:
     - ionic plugin rm cordova-plugin-console
     # build android
     - ionic build --release android
+  tags:
+    - docker
+
+# deploy the android app to production
+.deploy-android:
+  stage: deploy
+  image: weikinhuang/ionic-android-build
+  script:
+    # quick reference env vars
+    - export ANDROID_APK_PATH=platforms/android/build/outputs/apk/android-armv7-debug.apk
+    - export ANDROID_APK_PACKAGE_NAME=$($ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH | grep package:\ name | cut -d ' ' -f 2 | sed "s/name='\(.\+\)'/\1/")
+    # supply env vars
+    - export SUPPLY_PACKAGE_NAME="$ANDROID_APK_PACKAGE_NAME"
+    - export SUPPLY_TRACK=alpha
+    - export SUPPLY_SKIP_UPLOAD_METADATA=1
+    - export SUPPLY_SKIP_UPLOAD_IMAGES=1
+    - export SUPPLY_SKIP_UPLOAD_SCREENSHOTS=1
+    - export SUPPLY_JSON_KEY=
+    # actually deploy to google
+    - supply --verbose --apk $ANDROID_APK_PATH
+    # dump info about apk
+    - $ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH
+  dependencies:
+    - android-build
+  only:
+    - tags
   tags:
     - docker
