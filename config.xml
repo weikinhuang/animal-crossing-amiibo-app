@@ -4,7 +4,7 @@
         android-versionCode="0"
         xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Animal Crossing Amiibo Checklist</name>
+    <name>Animal Crossing Card Checklist</name>
     <description>
       Animal Crossing amiibo cards checklist
     </description>

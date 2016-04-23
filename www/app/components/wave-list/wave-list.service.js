@@ -1,6 +1,5 @@
 import ngInjectDecorator from "../../decorators/ng-inject";
 
-const LEGACY_CARD_OWNERSHIP_KEY = "card-ownership-storage";
 const CARD_OWNERSHIP_KEY = "card-ownership";
 
 export default class WaveListSvc {
@@ -29,7 +28,7 @@ export default class WaveListSvc {
 	}
 
 	loadAllSeries() {
-		let allSeries = [];
+		const allSeries = [];
 		for (let i = 1; i <= this.LATEST_SERIES; i++) {
 			allSeries.push(this.load(i));
 		}
@@ -55,6 +54,9 @@ export default class WaveListSvc {
 	}
 
 	load(seriesId) {
+		if (seriesId === "all") {
+			return this.loadAllSeries();
+		}
 		if (!this.isValidSeries(seriesId)) {
 			return this.$q.reject(new Error("unspecified series"));
 		}
@@ -74,29 +76,9 @@ export default class WaveListSvc {
 		return this.httpPromises[seriesId];
 	}
 
-	migrateLegacyOwnedCardData() {
-		const ownedCardsLegacyFormat = this.$localStorage.get(LEGACY_CARD_OWNERSHIP_KEY) || {};
-		// clean up legacy data
-		this.$localStorage.remove(LEGACY_CARD_OWNERSHIP_KEY);
-		const ownedCards = {};
-		Object.keys(ownedCardsLegacyFormat).forEach((series) => {
-			Object.keys(ownedCardsLegacyFormat[series]).forEach((cardId) => {
-				ownedCards[cardId] = {
-					owned : !!ownedCardsLegacyFormat[series][cardId]
-				};
-			});
-		});
-		this.setOwnedCardData(ownedCards);
-		return ownedCardsLegacyFormat;
-	}
-
 	getOwnedCardData() {
 		// get current key
 		let ownedCards = this.$localStorage.get(CARD_OWNERSHIP_KEY);
-		// convert from legacy format
-		if (ownedCards === null) {
-			ownedCards = this.migrateLegacyOwnedCardData();
-		}
 		// default value
 		if (ownedCards === null) {
 			ownedCards = {};
@@ -114,16 +96,22 @@ export default class WaveListSvc {
 		}
 		const ownedCards = this.getOwnedCardData();
 		if (!ownedCards[card.id]) {
-			ownedCards[card.id] = {};
+			ownedCards[card.id] = {
+				createdAt : new Date()
+			};
 		}
 		ownedCards[card.id].owned = !!isOwned;
+		ownedCards[card.id].updatedAt = new Date();
 		card.isOwned = !!isOwned;
 
 		this.setOwnedCardData(ownedCards);
 	}
 
 	clearOwnershipData() {
-		this.$localStorage.remove(CARD_OWNERSHIP_KEY);
+		return this.$q((resolve) => {
+			this.$localStorage.remove(CARD_OWNERSHIP_KEY);
+			resolve();
+		});
 	}
 }
 
