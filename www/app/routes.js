@@ -19,7 +19,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 		})
 
 		.state("app.home", {
-			url : "/home",
+			url : "/home.disabled",
 			views : {
 				content : {
 					templateUrl : homeRouteTemplate,
@@ -60,7 +60,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 	;
 
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise("/app/home");
+	$urlRouterProvider.otherwise("/app/wave-list/all");
 }
 
 export default [

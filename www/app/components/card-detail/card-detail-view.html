@@ -8,7 +8,7 @@
 		<div class="card-img-wrapper">
 			<img alt="{{ ::viewCtrl.selectedCard.name }}"
 				 class="card-img"
-				 ng-src="img/cards/wave-{{ ::viewCtrl.seriesId }}/{{ ::viewCtrl.selectedCard.id }}.png"
+				 ng-src="img/cards/wave-{{ ::viewCtrl.selectedCard.wave }}/{{ ::viewCtrl.selectedCard.id }}.png"
 			>
 		</div>
 		<div class="card-detail-name">{{ ::viewCtrl.selectedCard.name }}</div>
@@ -21,8 +21,8 @@
 					<a class="interaction-checkbox">
 						<span class="interaction-checkbox-icon"
 							  ng-class="{
-								'ion-android-checkbox' : viewCtrl.selectedCard.isOwned,
-								'ion-android-checkbox-blank' : !viewCtrl.selectedCard.isOwned
+								'ion-android-checkbox-outline' : viewCtrl.selectedCard.isOwned,
+								'ion-android-checkbox-outline-blank' : !viewCtrl.selectedCard.isOwned
 						   }"
 						></span>
 					</a>
@@ -30,7 +30,7 @@
 			</li>
 			<li class="item clearfix">
 				<span class="item-title">Series</span>
-				<span class="item-value">{{ ::viewCtrl.seriesId }}</span>
+				<span class="item-value">{{ ::viewCtrl.selectedCard.wave }}</span>
 			</li>
 			<li class="item clearfix">
 				<span class="item-title">Card Number</span>

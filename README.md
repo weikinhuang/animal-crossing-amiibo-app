@@ -1,5 +1,5 @@
 # animal-crossing-amiibo-app
-Animal Crossing Amiibo Checklist
+Animal Crossing Card Checklist
 
 ## Building the App
 This is a [ionic](https://ionicframework.com/) mobile app
@@ -37,3 +37,5 @@ ionic serve
 ```bash
 ionic run android
 ```
+
+### Disclaimer
