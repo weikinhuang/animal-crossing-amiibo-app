@@ -17,8 +17,20 @@ export default class WaveListCtrl {
 		this.setNotReleased = !this.WaveListSvc.isValidSeries(this.seriesId);
 
 		this.$ionicLoading.show();
+		this.isLoading = true;
+
+		this.$scope.$on("$ionicView.enter", this.$ionicViewEnter.bind(this));
 
 		this.loadData();
+	}
+
+	$ionicViewEnter() {
+		if (this.isLoading || !this.cards) {
+			return;
+		}
+		this.WaveListSvc.mergeOwnedCardData({
+			cards : this.cards
+		});
 	}
 
 	loadData() {
@@ -28,14 +40,16 @@ export default class WaveListCtrl {
 		} else {
 			loadPromise = this.WaveListSvc.load(this.seriesId);
 		}
-		loadPromise
+		return loadPromise
 			.then((data) => {
 				this.$ionicLoading.hide();
+				this.isLoading = false;
 				this.processSeriesData(data);
 			})
 			.catch(() => {
 				// series not released...
 				this.$ionicLoading.hide();
+				this.isLoading = false;
 			});
 	}
 
@@ -102,6 +116,7 @@ export default class WaveListCtrl {
 WaveListCtrl.$inject = [
 	"$ionicLoading",
 	"$ionicScrollDelegate",
+	"$scope",
 	"$stateParams",
 	"$timeout",
 	"WaveListSvc"
