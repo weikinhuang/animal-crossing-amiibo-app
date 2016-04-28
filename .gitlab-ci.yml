@@ -20,7 +20,7 @@ before_script:
 # lint
 eslint:
   stage: test
-  image: node:5.10.1
+  image: node:5.11.0
   cache:
     paths:
       - node_modules/
