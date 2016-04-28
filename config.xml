@@ -6,7 +6,7 @@
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Amiibo Card Checklist</name>
     <description>
-        Checklist for AC:HHD amiibo Cards to help keep track of your collection.
+      Checklist for AC:HHD amiibo Cards to help keep track of your collection.
     </description>
     <author email="wei@closedinterval.com" href="https://www.closedinterval.com/">
       Wei Kin Huang
