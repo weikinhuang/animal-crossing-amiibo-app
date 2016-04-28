@@ -1,0 +1,19 @@
+- FEATURES -
+
+• Cards are sorted by series with the inclusion of promo cards
+• An option to hide or gray out cards you already have in your collection
+• Cards you are searching for are kept visible in color or at the top of the list
+• No ads
+• Updated as new series are released
+• Works offline
+• Simple to use
+
+- Disclaimer -
+
+Animal Crossing Amiibo Card Checklist is an UNOFFICIAL app for collectors made by a fan of Animal Crossing and is intended to be used for informational purposes only.
+
+Animal Crossing Amiibo Card Checklist is in no way affiliated with Nintendo.
+
+The source code is available here: https://github.com/weikinhuang/animal-crossing-amiibo-app
+
+If you have any questions, comments, feature suggestions, or concerns with this app, please file an issue on GitHub at https://github.com/weikinhuang/animal-crossing-amiibo-app/issues
