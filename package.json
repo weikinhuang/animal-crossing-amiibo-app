@@ -83,14 +83,14 @@
     "js"
   ],
   "cordovaPlugins": [
-    "cordova-plugin-console",
-    "cordova-plugin-device",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-crosswalk-webview",
-    "cordova-plugin-whitelist",
-    "ionic-plugin-keyboard"
+    "cordova-plugin-console@1.0.3",
+    "cordova-plugin-crosswalk-webview@1.7.0",
+    "cordova-plugin-device@1.1.2",
+    "cordova-plugin-splashscreen@3.2.2",
+    "cordova-plugin-whitelist@1.2.2",
+    "ionic-plugin-keyboard@2.1.0"
   ],
   "cordovaPlatforms": [
-    "android"
+    "android@5.1.1"
   ]
 }

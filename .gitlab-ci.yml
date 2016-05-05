@@ -48,6 +48,9 @@ build-android:
     # build android
     - ionic build --release android
     - ls -la platforms/android/build/outputs/apk/
+  artifacts:
+    paths:
+      - platforms/android/build/outputs/apk/android-armv7-release.apk
   only:
     - tags
   tags:
