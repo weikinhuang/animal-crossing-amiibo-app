@@ -48,6 +48,8 @@ build-android:
     # build android
     - ionic build --release android
     - ls -la platforms/android/build/outputs/apk/
+  only:
+    - tags
   tags:
     - docker
 
@@ -58,14 +60,19 @@ build-android:
   script:
     # quick reference env vars
     - export ANDROID_APK_PATH=platforms/android/build/outputs/apk/android-armv7-release.apk
-    - export ANDROID_APK_PACKAGE_NAME=$($ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH | grep package:\ name | cut -d ' ' -f 2 | sed "s/name='\(.\+\)'/\1/")
+    - export ANDROID_APK_INFO="$($ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH)"
+    - export ANDROID_APK_PACKAGE_NAME=$(echo "$ANDROID_APK_INFO" | grep package:\ name | tr ' ' '\n' | grep '^name=' | sed "s/name='\(.\+\)'/\1/")
+    - export ANDROID_APK_VERSION_CODE=$(echo "$ANDROID_APK_INFO" | grep versionCode= | tr ' ' '\n' | grep '^versionCode=' | sed "s/versionCode='\(.\+\)'/\1/")
     # supply env vars
     - export SUPPLY_PACKAGE_NAME="$ANDROID_APK_PACKAGE_NAME"
     - export SUPPLY_TRACK=alpha
-    - export SUPPLY_SKIP_UPLOAD_METADATA=1
-    - export SUPPLY_SKIP_UPLOAD_IMAGES=1
-    - export SUPPLY_SKIP_UPLOAD_SCREENSHOTS=1
+    #- export SUPPLY_SKIP_UPLOAD_METADATA=1
+    #- export SUPPLY_SKIP_UPLOAD_IMAGES=1
+    #- export SUPPLY_SKIP_UPLOAD_SCREENSHOTS=1
     - export SUPPLY_JSON_KEY="$(pwd)/keys/android-deploy.json"
+    - export FASTLANE_OPT_OUT_USAGE=1
+    # move changelog
+    - cp "metadata/en-US/changelogs/changelog.txt" "metadata/en-US/changelogs/${ANDROID_APK_VERSION_CODE}.txt"
     # actually deploy to google
     - supply --verbose --apk $ANDROID_APK_PATH
     # dump info about apk
