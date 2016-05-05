@@ -57,7 +57,7 @@ build-android:
     - docker
 
 # deploy the android app to production
-.deploy-android:
+deploy-android:
   stage: deploy
   image: weikinhuang/ionic-android-build
   script:
@@ -81,7 +81,7 @@ build-android:
     # dump info about apk
     - $ANDROID_HOME/build-tools/$ANDROID_BUILD_TOOLS/aapt dump badging $ANDROID_APK_PATH
   dependencies:
-    - android-build
+    - build-android
   only:
     - tags
   tags:
