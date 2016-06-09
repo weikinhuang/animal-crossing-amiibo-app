@@ -7,7 +7,7 @@ export default module.name;
 
 
 module
-	.constant("LATEST_SERIES", 3)
+	.constant("LATEST_SERIES", 4)
 	.constant("MIN_CARD_ID", 1)
-	.constant("MAX_CARD_ID", 300)
+	.constant("MAX_CARD_ID", 400)
 ;
