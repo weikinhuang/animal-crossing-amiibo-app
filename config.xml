@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.closedinterval.apps.animalcrossingamiibo"
-        version="1.2.3"
+        version="1.2.4"
         android-versionCode="0"
         xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Unofficial ACNL Card Checklist</name>
+    <name>Checklist for Amiibo Cards</name>
     <description>
       Checklist for AC:HHD amiibo Cards to help keep track of your collection.
     </description>
