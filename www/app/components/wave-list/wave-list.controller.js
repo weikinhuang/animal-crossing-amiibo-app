@@ -63,7 +63,13 @@ export default class WaveListCtrl {
 	}
 
 	toggleCardOwnership(card) {
-		this.WaveListSvc.markOwnership(card, !card.isOwned);
+		this.WaveListSvc.markOwnership(card, !card.isOwned)
+			.then(() => {
+				this.$vibrate.vibrate(50);
+				this.ToastSvc.show(`${card.isOwned ? "Added" : "Removed"} ${card.name} (Undo?)`, () => {
+					this.toggleCardOwnership(card);
+				});
+			});
 	}
 
 	toggleOnlyOwned() {
@@ -119,5 +125,7 @@ WaveListCtrl.$inject = [
 	"$scope",
 	"$stateParams",
 	"$timeout",
+	"$vibrate",
+	"ToastSvc",
 	"WaveListSvc"
 ];

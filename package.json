@@ -88,7 +88,7 @@
     "cordova-plugin-device@1.1.2",
     "cordova-plugin-splashscreen@3.2.2",
     "cordova-plugin-whitelist@1.2.2",
-    "ionic-plugin-keyboard@2.1.0"
+    "ionic-plugin-keyboard@2.2.0"
   ],
   "cordovaPlatforms": [
     "android@5.1.1"

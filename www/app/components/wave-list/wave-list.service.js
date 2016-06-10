@@ -92,7 +92,7 @@ export default class WaveListSvc {
 
 	markOwnership(card, isOwned = true) {
 		if (!this.isValidSeries(card.wave)) {
-			return;
+			return this.$q.reject(new Error("Invalid card wave."));
 		}
 		const ownedCards = this.getOwnedCardData();
 		if (!ownedCards[card.id]) {
@@ -105,6 +105,7 @@ export default class WaveListSvc {
 		card.isOwned = !!isOwned;
 
 		this.setOwnedCardData(ownedCards);
+		return this.$q.resolve(card);
 	}
 
 	clearOwnershipData() {
