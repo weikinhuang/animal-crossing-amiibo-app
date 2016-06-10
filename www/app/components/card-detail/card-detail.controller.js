@@ -41,7 +41,13 @@ export default class CardDetailCtrl {
 	}
 
 	toggleCardOwnership() {
-		this.WaveListSvc.markOwnership(this.selectedCard, !this.selectedCard.isOwned);
+		this.WaveListSvc.markOwnership(this.selectedCard, !this.selectedCard.isOwned)
+			.then((card) => {
+				this.$vibrate.vibrate(50);
+				this.ToastSvc.show(`${card.isOwned ? "Added" : "Removed"} ${card.name} (Undo?)`, () => {
+					this.toggleCardOwnership(card);
+				});
+			});
 	}
 }
 
@@ -49,5 +55,7 @@ CardDetailCtrl.$inject = [
 	"$ionicLoading",
 	"$location",
 	"$stateParams",
+	"$vibrate",
+	"ToastSvc",
 	"WaveListSvc"
 ];
